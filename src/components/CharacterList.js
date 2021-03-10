@@ -1,4 +1,7 @@
 import React from 'react'
+import { connect } from 'react-redux';
+
+import { getCharacters } from '../actions'
 
 import CharSelector from './CharSelector'
 
@@ -11,10 +14,15 @@ const Column = styled.div`
   width: 30vw;
 `
 
-const CharacterList = ({ characters }) => {
+const CharacterList = ({ characters, getCharacters }) => {
   return (
     <Column>
       {
+        characters.length === 0 ?
+        <button onClick={e => getCharacters()}>
+          Get Characters
+        </button>
+        :
         characters.map(character => (
           <CharSelector character={character} key={character.id}/>
         ))
@@ -23,4 +31,10 @@ const CharacterList = ({ characters }) => {
   )
 }
 
-export default CharacterList
+const mapStateToProps = state => ({
+  characters: state.characters,
+  error: state.error
+})
+
+export default connect(mapStateToProps,
+  { getCharacters })(CharacterList);
