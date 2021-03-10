@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios'
 
+import CharacterList from './components/CharacterList'
+
 import { URL, PUBLIC_KEY, PRIVATE_KEY } from './keys'
 
 import './App.css';
@@ -27,16 +29,7 @@ function App() {
   }, [])
   return (
     <div className="App">
-      {
-        characters.map(character => (
-          <div key={character.id}>
-          <h2>{character.name + ' ' + character.id}</h2>
-          <img src={`${character.thumbnail.path}/portrait_medium.${character.thumbnail.extension}`} 
-            alt={character.name}
-          />
-          </div>
-        ))
-      }
+      <CharacterList characters={characters}/>
     </div>
   );
 }
@@ -45,5 +38,7 @@ function App() {
 // 08 07 06 05
 // 04 03
 // 02
-//
+// Avengers 1009165
+// Fantastic Four 1009299 
+// X-Men 1009726
 export default App;
