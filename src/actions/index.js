@@ -5,12 +5,29 @@ import { PRIVATE_KEY, PUBLIC_KEY as key,
 
 export const TYPE = "TYPE"
 
+export const ADD_TO_TOURNAMENT = "ADD_TO_TOURNAMENT"
+export const MOVE_UP = "MOVE_UP"
+export const MOVE_DOWN = "MOVE_DOWN"
+
+
 export const FETCH_CHARACTERS_START = "FETCH_CHARACTERS_START"
 export const FETCH_CHARACTERS_SUCCESS = "FETCH_CHARACTERS_SUCCESS"
 export const FETCH_CHARACTERS_FAIL = "FETCH_CHARACTERS_FAIL"
 
 export const action = () => {
   return {type: TYPE, payload: ''}
+}
+
+export const moveUp = (id) => {
+  return {type: MOVE_UP, payload: id}
+}
+
+export const moveDown = (id) => {
+  return {type: MOVE_DOWN, payload: id}
+}
+
+export const addToTournament = (character) => dispatch => {
+  dispatch({type:ADD_TO_TOURNAMENT, payload:character})
 }
 
 export const getCharacters = () => dispatch => {

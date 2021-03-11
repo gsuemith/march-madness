@@ -1,11 +1,39 @@
 import React from 'react'
+import { connect } from 'react-redux'
+import styled from 'styled-components'
 
-const Ranking = () => {
+import Competitor from './Competitor'
+
+const Container = styled.div`
+  /* display: flex;
+  align-content: flex-start;
+  flex-wrap: wrap;
+  flex-grow: 2; */
+  width: 70vw;
+  margin: 1em;
+  height: 700px;
+`
+
+const Ranking = ({ tournament, characters }) => {
   return (
-    <div>
-      
-    </div>
+    <Container>
+      {
+        tournament.map((id, index) => (
+          <Competitor 
+            key={id}
+            seed={index + 1} 
+            character={characters
+            .find(character => character.id === id)}
+          />
+        ))
+      }
+    </Container>
   )
 }
 
-export default Ranking
+const mapStateToProps = state => ({
+  tournament: state.tournament,
+  characters: state.characters
+})
+
+export default connect(mapStateToProps, {})(Ranking)

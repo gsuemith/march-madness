@@ -1,4 +1,3 @@
-import CharacterList from './components/CharacterList'
 import Home from './routes/Home'
 
 import './App.css';

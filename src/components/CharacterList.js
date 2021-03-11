@@ -1,17 +1,24 @@
 import React from 'react'
 import { connect } from 'react-redux';
+import styled from 'styled-components';
 
 import { getCharacters } from '../actions'
 
 import CharSelector from './CharSelector'
 
-import styled from 'styled-components';
-
 const Column = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: end;
-  width: 30vw;
+  /* display: flex; */
+  /* flex-direction: column; */
+  /* align-items: end; */
+  min-width: 25vw;
+  margin: 1em;
+  height: 700px;
+  max-width: 265px;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+  ::-webkit-scrollbar {
+    display:none;
+  }
 `
 
 const CharacterList = ({ characters, getCharacters }) => {
