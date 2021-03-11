@@ -2,6 +2,8 @@ import React from 'react'
 import { connect } from 'react-redux'
 import styled from 'styled-components'
 
+import { moveUp, moveDown } from '../actions'
+
 const Card = styled.div`
   display: inline-block;
   width: 160px;
@@ -14,13 +16,15 @@ const Card = styled.div`
   }
 `
 
-const Competitor = ({ character, seed }) => {
+const Competitor = (props) => {
+  const { character, seed, moveUp, moveDown } = props;
+
   return (
     <Card>
       <h2>
         {`#${seed}`}
-        <span>{"<"}</span>
-        <span>{">"}</span>
+        <span onClick={e => moveUp(character.id)}>{"<"}</span>
+        <span onClick={e => moveDown(character.id)}>{">"}</span>
       </h2>
       <h3>{character.name.split(' (')[0]}</h3>
       <img 
@@ -31,4 +35,4 @@ const Competitor = ({ character, seed }) => {
   )
 }
 
-export default Competitor
+export default connect(null, { moveUp, moveDown })(Competitor)

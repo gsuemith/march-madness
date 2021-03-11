@@ -21,7 +21,7 @@ const reducer = (state = initialState, { type, payload }) => {
       return {
         ...state,
         tournament: state.tournament.map((id, index, array) => {
-          if(id === payload){
+          if(id === payload && index > 0){
             return array[index - 1]
           }
           if(array[index + 1] === payload){
@@ -35,7 +35,7 @@ const reducer = (state = initialState, { type, payload }) => {
       return {
         ...state,
         tournament: state.tournament.map((id, index, array) => {
-          if(id === payload){
+          if(id === payload && index+1 < state.tournament.length){
             return array[index + 1]
           }
           if(array[index - 1] === payload){
