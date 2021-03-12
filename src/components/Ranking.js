@@ -2,13 +2,13 @@ import React from 'react'
 import { connect } from 'react-redux'
 import styled from 'styled-components'
 
-import Competitor from './Competitor'
+import Competitor, { Card } from './Competitor'
 
 const Container = styled.div`
-  /* display: flex;
+  display: flex;
   align-content: flex-start;
   flex-wrap: wrap;
-  flex-grow: 2; */
+  flex-grow: 2;
   width: 70vw;
   margin: 1em;
   height: 700px;
@@ -27,6 +27,9 @@ const Ranking = ({ tournament, characters }) => {
           />
         ))
       }
+      <Card>
+        <h2>Start Tournament!</h2>
+      </Card>
     </Container>
   )
 }

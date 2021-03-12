@@ -2,13 +2,16 @@ import React from 'react'
 import { connect } from 'react-redux';
 import styled from 'styled-components';
 
-import { addToTournament } from '../actions';
+import { addToTournament, removeFromTournament } from '../actions';
 
 
-const CharSelector = ({ character, addToTournament }) => {
+const CharSelector = ({ character, addToTournament, removeFromTournament }) => {
   const handleClick = e => {
-    if(!character.isCompeting)
+    if(character.isCompeting){
+      removeFromTournament(character)
+    } else {
       addToTournament(character);
+    }
   }
 
   return (
@@ -20,7 +23,7 @@ const CharSelector = ({ character, addToTournament }) => {
         src={`${character.thumbnail.path}/standard_small.${character.thumbnail.extension}`} 
         alt={character.name}
       />
-      <Name>{character.name}</Name>
+      <Name>{character.name.split(' (')[0]}</Name>
     </SelectChar>
   )
 }
@@ -49,5 +52,5 @@ const Name = styled.span`
 
 export default connect(
   null, 
-  { addToTournament }
+  { addToTournament, removeFromTournament }
 )(CharSelector)

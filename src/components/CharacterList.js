@@ -21,13 +21,16 @@ const Column = styled.div`
   }
 `
 
-const CharacterList = ({ characters, getCharacters }) => {
+const CharacterList = ({ characters, getCharacters, isFetching }) => {
   return (
     <Column>
       {
         characters.length === 0 ?
-        <button onClick={e => getCharacters()}>
-          Get Characters
+        <button 
+          onClick={e => getCharacters()} 
+          disabled={isFetching}
+        >
+          {isFetching ? "Please wait..." : "Get Characters"}
         </button>
         :
         characters.map(character => (
@@ -40,7 +43,8 @@ const CharacterList = ({ characters, getCharacters }) => {
 
 const mapStateToProps = state => ({
   characters: state.characters,
-  error: state.error
+  error: state.error,
+  isFetching: state.isFetching
 })
 
 export default connect(mapStateToProps,

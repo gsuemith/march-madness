@@ -1,12 +1,16 @@
 import { FETCH_CHARACTERS_START, 
-  FETCH_CHARACTERS_SUCCESS, FETCH_CHARACTERS_FAIL, ADD_TO_TOURNAMENT,
-  MOVE_DOWN, MOVE_UP 
+  FETCH_CHARACTERS_SUCCESS, FETCH_CHARACTERS_FAIL, MOVE_DOWN, MOVE_UP,
+  ADD_TO_TOURNAMENT, REMOVE_FROM_TOURNAMENT
+   
 } from "../actions"
 
 const initialState = {
   characters: [],
   tournament: [],
-  rounds: 1,
+  rounds: [
+    {matches: [], winners: []}
+  ], 
+  //match = {defender:{id:001, rating:1000}, challenger:...}
   currentRound: 0,
   currentMatch: 0,
   isFetching: false,
@@ -61,6 +65,23 @@ const reducer = (state = initialState, { type, payload }) => {
           ...state.tournament, 
           payload.id
         ]
+      }
+
+    case REMOVE_FROM_TOURNAMENT:
+      return {
+        ...state,
+        characters: state.characters.map(character => {
+          if (character.id === payload.id){
+            return {
+              ...character,
+              isCompeting: false
+            };
+          }
+          return character;
+        }),
+        tournament: state.tournament.filter(id => {
+          return id !== payload.id
+        })
       }
     
     case FETCH_CHARACTERS_START:
