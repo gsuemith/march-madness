@@ -2,8 +2,11 @@ import axios from 'axios'
 import { FORBIDDEN_GROUPS, getURL, GUARDIANS_OF_THE_GALAXY as gotg
 } from '../keys'
 
+import seed from './seed'
+
 export const TYPE = "TYPE"
 
+export const START_TOURNAMENT = "START_TOURNAMENT"
 export const ADD_TO_TOURNAMENT = "ADD_TO_TOURNAMENT"
 export const REMOVE_FROM_TOURNAMENT = "REMOVE_FROM_TOURNAMENT"
 export const MOVE_UP = "MOVE_UP"
@@ -24,6 +27,10 @@ export const moveUp = (id) => {
 
 export const moveDown = (id) => {
   return {type: MOVE_DOWN, payload: id}
+}
+
+export const startTournament = (ids) => {
+  return {type:START_TOURNAMENT, payload:seed(ids)}
 }
 
 export const addToTournament = (character) => {

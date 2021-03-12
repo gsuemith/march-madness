@@ -1,5 +1,6 @@
 import { FETCH_CHARACTERS_START, 
-  FETCH_CHARACTERS_SUCCESS, FETCH_CHARACTERS_FAIL, MOVE_DOWN, MOVE_UP,
+  FETCH_CHARACTERS_SUCCESS, FETCH_CHARACTERS_FAIL, 
+  MOVE_DOWN, MOVE_UP, START_TOURNAMENT,
   ADD_TO_TOURNAMENT, REMOVE_FROM_TOURNAMENT
    
 } from "../actions"
@@ -21,6 +22,26 @@ const reducer = (state = initialState, { type, payload }) => {
   switch (type) {
   // case typeName:
   //   return { ...state, ...payload }
+    case  START_TOURNAMENT:
+      return {
+        ...state,
+        currentRound: 0,
+        currentMatch: 0,
+        rounds: [{
+          winners: [],
+          matches: payload.map((matchup, index) => {
+            return {
+              defender: {
+                id: matchup[0], rating: index*25
+              },
+              challenger: {
+                id: matchup[1], rating: index*-25
+              }
+            }
+          })
+        }]
+      }
+
     case MOVE_UP:
       return {
         ...state,

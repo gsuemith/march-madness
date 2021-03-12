@@ -1,6 +1,6 @@
 const { ceil, log2 } = Math
 
-export default function matchups(ids){
+export default function seed(ids){
   const powerOf2 = ceil(log2(ids.length))
   const matchupList = [];
 
