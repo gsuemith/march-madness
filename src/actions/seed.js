@@ -8,7 +8,7 @@ export default function seed(ids){
   let lowerIndex = upperIndex - 1;
 
   while(lowerIndex >= 0){
-    matchupList.push([
+    matchupList.unshift([
       ids[lowerIndex], 
       ids[upperIndex] || 'bye'
     ])

@@ -35,18 +35,19 @@ export const moveDown = (id) => {
 }
 
 export const startTournament = (ids) => {
+  
   let initial = seed(ids).map((matchup, index, array) => {
     const newMatch = {
       id: index,
       defender: {
         id: matchup[0], 
-        rating: (2*index+1)*25,
-        seed: array.length - index,
+        rating: 256-(index*2 + 1)*128/array.length,
+        seed: 1 + index,
       },
       challenger: {
         id: matchup[1], 
-        rating: (2*index+1)*-25,
-        seed: array.length + 1 + index,
+        rating: (index*2 + 1)*128/array.length-256,
+        seed: array.length*2 - index,
       }
     }
     return newMatch
