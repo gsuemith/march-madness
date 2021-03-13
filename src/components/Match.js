@@ -31,7 +31,7 @@ const Match = ({ match, characters }) => {
         />
         <Name>{challenger.name.split(' (')[0]}</Name>
       </SelectChar>
-      <button>Fight</button>
+      <button>Fight!</button>
     </MatchCard>
   )
 }

@@ -13,7 +13,6 @@ const initialState = {
   ], 
   //match = {defender:{id:001, rating:1000}, challenger:...}
   currentRound: 0,
-  currentMatch: 0,
   isFetching: false,
   error: '',
 }
@@ -26,7 +25,6 @@ const reducer = (state = initialState, { type, payload }) => {
       return {
         ...state,
         currentRound: 0,
-        currentMatch: 0,
         rounds: [{
           winners: [],
           matches: payload
