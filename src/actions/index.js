@@ -12,6 +12,7 @@ export const REMOVE_FROM_TOURNAMENT = "REMOVE_FROM_TOURNAMENT"
 export const MOVE_UP = "MOVE_UP"
 export const MOVE_DOWN = "MOVE_DOWN"
 
+export const RUN_MATCH = "RUN_MATCH"
 
 export const FETCH_CHARACTERS_START = "FETCH_CHARACTERS_START"
 export const FETCH_CHARACTERS_SUCCESS = "FETCH_CHARACTERS_SUCCESS"
@@ -19,6 +20,10 @@ export const FETCH_CHARACTERS_FAIL = "FETCH_CHARACTERS_FAIL"
 
 export const action = () => {
   return {type: TYPE, payload: ''}
+}
+
+export const runMatch = match => {
+
 }
 
 export const moveUp = (id) => {
@@ -30,7 +35,40 @@ export const moveDown = (id) => {
 }
 
 export const startTournament = (ids) => {
-  return {type:START_TOURNAMENT, payload:seed(ids)}
+  let initial = seed(ids).map((matchup, index, array) => {
+    const newMatch = {
+      id: index,
+      defender: {
+        id: matchup[0], 
+        rating: (2*index+1)*25,
+        seed: array.length - index,
+      },
+      challenger: {
+        id: matchup[1], 
+        rating: (2*index+1)*-25,
+        seed: array.length + 1 + index,
+      }
+    }
+    return newMatch
+  })
+
+  while(initial.length > 2){
+    initial = seed(initial)
+  }
+
+  const round1 = [];
+  function tournamentOrder(array){
+    if(Array.isArray(array[0])){
+      tournamentOrder(array[0]);
+      tournamentOrder(array[1]);
+    } else {
+      round1.push(array[0], array[1])
+    }
+  }
+
+  tournamentOrder(initial)
+
+  return {type:START_TOURNAMENT, payload:round1}
 }
 
 export const addToTournament = (character) => {

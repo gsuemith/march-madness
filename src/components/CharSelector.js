@@ -28,7 +28,7 @@ const CharSelector = ({ character, addToTournament, removeFromTournament }) => {
   )
 }
 
-const SelectChar = styled.div`
+export const SelectChar = styled.div`
   margin: 3px 0;
   box-shadow: 1px 1px 1px gray;
   width: 95%;
@@ -43,9 +43,15 @@ const SelectChar = styled.div`
   :hover {
     box-shadow: 3px 3px 3px gray;
   }
+  .seed {
+    width: 2.5em;
+    padding: 1em 0 0 .5em;
+    background-color: green;
+    height: 100%;
+  }
 `
 
-const Name = styled.span`
+export const Name = styled.span`
   margin-left: .5em;
   `
 

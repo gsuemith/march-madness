@@ -1,8 +1,10 @@
 import React from 'react'
+import { useHistory } from 'react-router'
 import { connect } from 'react-redux'
 import styled from 'styled-components'
 
 import Competitor, { Card } from './Competitor'
+import { startTournament } from '../actions'
 
 const Container = styled.div`
   display: flex;
@@ -14,7 +16,15 @@ const Container = styled.div`
   height: 700px;
 `
 
-const Ranking = ({ tournament, characters }) => {
+
+const Ranking = ({ tournament, characters, startTournament }) => {
+  const { push } = useHistory();
+
+  const start = e => {
+    push('/tournament')
+    startTournament(tournament);
+  }
+
   return (
     <Container>
       {
@@ -27,8 +37,8 @@ const Ranking = ({ tournament, characters }) => {
           />
         ))
       }
-      <Card>
-        <h2>Start Tournament!</h2>
+      <Card onClick={start}>
+        <h2 >Start Tournament!</h2>
       </Card>
     </Container>
   )
@@ -39,4 +49,5 @@ const mapStateToProps = state => ({
   characters: state.characters
 })
 
-export default connect(mapStateToProps, {})(Ranking)
+export default connect(
+  mapStateToProps, { startTournament })(Ranking)

@@ -29,16 +29,7 @@ const reducer = (state = initialState, { type, payload }) => {
         currentMatch: 0,
         rounds: [{
           winners: [],
-          matches: payload.map((matchup, index) => {
-            return {
-              defender: {
-                id: matchup[0], rating: index*25
-              },
-              challenger: {
-                id: matchup[1], rating: index*-25
-              }
-            }
-          })
+          matches: payload
         }]
       }
 
