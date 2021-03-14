@@ -7,8 +7,20 @@
   - [ ] Replace the strings with the keys from your marvel account.
 
 ```
-export const PUBLIC_KEY = 'your_public_key'
-export const PRIVATE_KEY = 'your_private_key'
+export const PUBLIC_KEY = 'your_public_key';
+export const PRIVATE_KEY = 'your_private_key';
+```
+
+- [ ] Add `/src/keys.js` to the `.gitignore` file.  !DO NOT RECORD API KEYS TO GITHUB!
+
+### Alternatively, run the following in the root folder
+
+Be sure to replace 'your_key' with the appropriate api keys or open the folder and edit them.
+
+```
+echo "/src/keys.js" >> .gitignore
+echo "export const PUBLIC_KEY = 'your_key';
+export const PRIVATE_KEY = 'your_key';" > src/keys.js
 ```
 
 # To get started run `npm i`
