@@ -29,11 +29,11 @@ const Tournament = ({ rounds, startTournament, tournament, winner }) => {
       }
       {
         winner && 
-        <Matches style={{width: '15em'}}>
-          <h1 style={{color: 'green'}}>Winner!</h1>
-          <SelectChar style={{border: '3px solid gold'}}>
+        <Matches style={{width: '18em'}}>
+          <SelectChar 
+            style={{border: '3px solid gold', height: '80px'}}>
             <img 
-              src={`${winner.thumbnail.path}/standard_small.${winner.thumbnail.extension}`} 
+              src={`${winner.thumbnail.path}/landscape_small.${winner.thumbnail.extension}`} 
               alt={winner.name}
             />
             <Name>{winner.name}</Name>

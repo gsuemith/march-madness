@@ -8,6 +8,15 @@ import { nextRound } from '../actions'
 const Round = ({ matches, round, nextRound, currentRound }) => {
 
   return (
+    <>
+    <Matches>
+    {
+      matches &&
+      matches.map(match => (
+        <Match match={match} key={match.id}/>
+        ))
+      }
+    </Matches>
     <Matches>
     {
       round.winners && 
@@ -19,13 +28,8 @@ const Round = ({ matches, round, nextRound, currentRound }) => {
         Next Round
       </button>
     }
-    {
-      matches &&
-      matches.map(match => (
-        <Match match={match} key={match.id}/>
-      ))
-    }
     </Matches>
+    </>
   )
 }
 
@@ -33,7 +37,7 @@ export const Matches = styled.div`
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  justify-content: center;
+  justify-content: space-around;
 `
 
 const mapStateToProps = state => ({

@@ -30,7 +30,7 @@ const CharSelector = ({ character, addToTournament, removeFromTournament }) => {
 
 export const SelectChar = styled.div`
   margin: 3px 0;
-  box-shadow: 1px 1px 1px gray;
+  box-shadow: 1px 1px 1px black;
   width: 95%;
   height: 45px;
   white-space: nowrap;
@@ -38,10 +38,11 @@ export const SelectChar = styled.div`
   text-overflow: ellipsis;
   display: flex;
   align-items: center;
+  background-color: white;
   background-color: ${props => props.bgColor};
   cursor: pointer;
   :hover {
-    box-shadow: 3px 3px 3px gray;
+    box-shadow: 3px 3px 3px black;
   }
   .seed {
     width: 2.5em;
