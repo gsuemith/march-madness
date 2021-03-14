@@ -1,15 +1,16 @@
 # Accessing the Marvel api
-To be able to access the Marvel api, you'll need to [create an account](https://developer.marvel.com/documentation/getting_started) and get both a public and private key.  
+- [ ] To be able to access the Marvel api, you'll need to [create an account](https://developer.marvel.com/documentation/getting_started) and get both a public and private key.  
 
-Create a file called `keys.js` in the `src` folder.
+- [ ] Create a file called `keys.js` in the `src` folder.
 
-In the file export two constants as follows:
+- [ ] In the file export two constants as follows:
+  - [ ] Replace the strings with the keys from your marvel account.
+
 ```
 export const PUBLIC_KEY = 'your_public_key'
 export const PRIVATE_KEY = 'your_private_key'
 ```
-Replace the strings with the keys from your marvel account.
-
+  
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
