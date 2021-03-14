@@ -10,8 +10,8 @@
 export const PUBLIC_KEY = 'your_public_key'
 export const PRIVATE_KEY = 'your_private_key'
 ```
-  
-# Getting Started with Create React App
+
+# To get started run `npm i`
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 

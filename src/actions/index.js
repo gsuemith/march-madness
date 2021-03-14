@@ -132,9 +132,9 @@ export const getCharacters = () => dispatch => {
         .then(res => {
           res.forEach(res => characters.push(res.data.data.results[0]))
           
-          // Dispatch list of characters to state in alpha order
+          // Dispatch list of characters in alpha order
           characters.sort((a,b) => a.name.localeCompare(b.name))
-          console.log("chars", characters)
+          // console.log("chars", characters)
           dispatch({
             type: FETCH_CHARACTERS_SUCCESS, 
             payload: characters
