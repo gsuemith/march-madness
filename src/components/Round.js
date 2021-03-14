@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { connect } from 'react-redux'
 import styled from 'styled-components'
 
@@ -25,7 +25,7 @@ const Round = ({ matches, round, nextRound, currentRound }) => {
       <button 
         onClick={e => nextRound(round)}
       >
-        Next Round
+        {matches.length === 1 ? 'And the winner is...' : 'Next Round'}
       </button>
     }
     </Matches>

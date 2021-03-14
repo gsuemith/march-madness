@@ -1,6 +1,6 @@
 import axios from 'axios'
 import { FORBIDDEN_GROUPS, getURL, GUARDIANS_OF_THE_GALAXY as gotg
-} from '../keys'
+} from '../api'
 
 import seed, { whoWins } from './seed'
 
@@ -50,7 +50,8 @@ export const nextRound = round => {
 
 export const runMatch = match => dispatch => {
   const { defender, challenger } = match
-  const winner = whoWins(defender.rating, challenger.rating) ? 'defender' : 'challenger';
+  const winner = challenger.id === 'bye' ? 'defender' :
+    (whoWins(defender.rating, challenger.rating) ? 'defender' : 'challenger');
   
   dispatch({
     type: RUN_MATCH, 

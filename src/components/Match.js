@@ -27,17 +27,24 @@ const Match = ({ match, characters, runMatch }) => {
           src={`${defender.thumbnail.path}/standard_small.${defender.thumbnail.extension}`} 
           alt={defender.name}
         />
-        <Name loser={match.winner == 'challenger'}>
+        <Name loser={match.winner === 'challenger'}>
           {defender.name.split(' (')[0]}
         </Name>
       </SelectChar>
       <SelectChar winner={match.winner} role='challenger'>
         <h3 className="seed">{'#' + match.challenger.seed}</h3>
-        <img 
-          src={`${challenger.thumbnail.path}/standard_small.${challenger.thumbnail.extension}`} 
-          alt={challenger.name}
-        />
-        <Name loser={match.winner == 'defender'}>{challenger.name.split(' (')[0]}</Name>
+        { 
+          challenger ?
+          <>
+            <img 
+              src={`${challenger.thumbnail.path}/standard_small.${challenger.thumbnail.extension}`} 
+              alt={challenger.name}
+            />
+            <Name loser={match.winner === 'defender'}>{challenger.name.split(' (')[0]}</Name>
+          </>
+          :
+          <Name loser={match.winner === 'defender'}>bye</Name>
+        }
       </SelectChar>
       <button onClick={fight} disabled={match.winner}>
         Fight!
