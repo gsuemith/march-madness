@@ -1,7 +1,7 @@
 import { FETCH_CHARACTERS_START, 
   FETCH_CHARACTERS_SUCCESS, FETCH_CHARACTERS_FAIL, 
-  MOVE_DOWN, MOVE_UP, START_TOURNAMENT,
-  ADD_TO_TOURNAMENT, REMOVE_FROM_TOURNAMENT
+  MOVE_DOWN, MOVE_UP, START_TOURNAMENT, UPDATE_WINNERS,
+  ADD_TO_TOURNAMENT, REMOVE_FROM_TOURNAMENT, RUN_MATCH, NEXT_ROUND, DECLARE_WINNER
    
 } from "../actions"
 
@@ -9,9 +9,9 @@ const initialState = {
   characters: [],
   tournament: [],
   rounds: [
-    {matches: [], winners: []}
+    {id: 0, matches: [], winners: []}
   ], 
-  //match = {defender:{id:001, rating:1000}, challenger:...}
+  //match = {id:0, winner:null, defender:{id:001, rating:1000}, challenger:...}
   currentRound: 0,
   isFetching: false,
   error: '',
@@ -21,14 +21,71 @@ const reducer = (state = initialState, { type, payload }) => {
   switch (type) {
   // case typeName:
   //   return { ...state, ...payload }
+    case DECLARE_WINNER:
+      return {
+        ...state,
+        rounds: [...state.rounds, {}],
+        tournamentWinner: state.characters.find(character => {
+          return character.id === payload.id;
+        })
+      }
+
+    case  NEXT_ROUND:
+      return {
+        ...state,
+        rounds: [...state.rounds, {
+          matches:payload,
+          winners: [],
+          id: state.currentRound + 1
+        }],
+        currentRound: state.currentRound + 1
+      }
+
+    case UPDATE_WINNERS:
+      return {
+        ...state,
+        rounds: state.rounds.map(round => {
+          return {
+            ...round,
+            winners: round.matches.reduce((acc, match) => {
+              if (match.winner) {
+                return acc = [...acc, match[match.winner]]
+              }
+              return acc;
+            }, [])
+          }
+        })
+      }
+
+    case RUN_MATCH: 
+      return {
+        ...state,
+        rounds: state.rounds.map(round => {
+          if(round.id === state.currentRound){
+            return {
+              ...round,
+              matches: round.matches.map(match => {
+                if(match.id === payload.id){
+                  return payload
+                }
+                return match;
+              })
+            }
+          }
+          return round;
+        })
+      }
+  
     case  START_TOURNAMENT:
       return {
         ...state,
-        currentRound: 0,
+        currentRound: 1,
         rounds: [{
+          id: 1,
           winners: [],
           matches: payload
-        }]
+        }],
+        tournamentWinner: null
       }
 
     case MOVE_UP:

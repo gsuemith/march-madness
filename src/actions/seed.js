@@ -1,4 +1,4 @@
-const { ceil, log2 } = Math
+const { ceil, log2, random } = Math
 
 export default function seed(ids){
   const powerOf2 = ceil(log2(ids.length))
@@ -20,4 +20,11 @@ export default function seed(ids){
   }
 
   return matchupList;
+}
+
+// elo rating simulator
+export const whoWins = (ratingA, ratingB) => {
+  const expectedA = 1/(1 + 10**((ratingB - ratingA)/400))
+  
+  return random() < expectedA;
 }

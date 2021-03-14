@@ -46,13 +46,19 @@ export const SelectChar = styled.div`
   .seed {
     width: 2.5em;
     padding: 1em 0 0 .5em;
-    background-color: green;
+    background-color: green;  //default
+    background-color: ${({ winner, role }) => {
+      if(winner){
+        return winner === role ? 'gold' : 'red'
+      } else {return 'none'}
+      }};
     height: 100%;
   }
 `
 
 export const Name = styled.span`
   margin-left: .5em;
+  text-decoration: ${({ loser }) => loser ?'line-through':'none'};
   `
 
 

@@ -2,7 +2,7 @@ import axios from 'axios'
 import { FORBIDDEN_GROUPS, getURL, GUARDIANS_OF_THE_GALAXY as gotg
 } from '../keys'
 
-import seed from './seed'
+import seed, { whoWins } from './seed'
 
 export const TYPE = "TYPE"
 
@@ -13,6 +13,9 @@ export const MOVE_UP = "MOVE_UP"
 export const MOVE_DOWN = "MOVE_DOWN"
 
 export const RUN_MATCH = "RUN_MATCH"
+export const UPDATE_WINNERS = "UPDATE_WINNERS"
+export const NEXT_ROUND = "NEXT_ROUND"
+export const DECLARE_WINNER = "DECLARE_WINNER"
 
 export const FETCH_CHARACTERS_START = "FETCH_CHARACTERS_START"
 export const FETCH_CHARACTERS_SUCCESS = "FETCH_CHARACTERS_SUCCESS"
@@ -22,8 +25,38 @@ export const action = () => {
   return {type: TYPE, payload: ''}
 }
 
-export const runMatch = match => {
+export const nextRound = round => {
+  if (round.winners.length === 1){
+    return({
+      type:DECLARE_WINNER, 
+      payload:round.winners[0]
+    })
+  }
+  const newRound = [];
 
+  round.winners.forEach((winner, index, winners) => {
+    if(index % 2 === 0){
+      newRound.push({
+        id: index/2,
+        winner: null,
+        defender: winner,
+        challenger: winners[index + 1]
+      })
+    }
+  })
+
+  return {type: NEXT_ROUND, payload: newRound}
+}
+
+export const runMatch = match => dispatch => {
+  const { defender, challenger } = match
+  const winner = whoWins(defender.rating, challenger.rating) ? 'defender' : 'challenger';
+  
+  dispatch({
+    type: RUN_MATCH, 
+    payload: {...match, winner: winner}
+  });
+  dispatch({type:UPDATE_WINNERS})
 }
 
 export const moveUp = (id) => {
@@ -39,6 +72,7 @@ export const startTournament = (ids) => {
   let initial = seed(ids).map((matchup, index, array) => {
     const newMatch = {
       id: index,
+      winner: null,
       defender: {
         id: matchup[0], 
         rating: 256-(index*2 + 1)*128/array.length,
