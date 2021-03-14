@@ -3,7 +3,7 @@
 
 - [ ] Create a file called `keys.js` in the `src` folder.
 
-- [ ] In the file export two constants as follows:
+- [ ] In the file, export two constants as follows:
   - [ ] Replace the strings with the keys from your marvel account.
 
 ```
@@ -15,7 +15,7 @@ export const PRIVATE_KEY = 'your_private_key';
 
 ### Alternatively, run the following in the root folder
 
-Be sure to replace 'your_key' with the appropriate api keys or open the folder and edit them.
+Be sure to replace 'your_key' with the appropriate api keys or open the file and edit them.
 
 ```
 echo "/src/keys.js" >> .gitignore
