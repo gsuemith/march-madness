@@ -5,21 +5,16 @@ import styled from 'styled-components'
 import Match from './Match'
 import { nextRound } from '../actions'
 
-const Round = ({ matches, round, nextRound }) => {
-  const [disabled, setDisabled] = useState(false)
-
-  const completeRound = e => {
-    nextRound(round)
-    setDisabled(true)
-  }
+const Round = ({ matches, round, nextRound, currentRound }) => {
 
   return (
     <Matches>
     {
-      round.winners && round.winners.length === matches.length &&
+      round.winners && 
+      round.winners.length === matches.length &&
+      currentRound === round.id &&
       <button 
-        onClick={completeRound} 
-        disabled={disabled}
+        onClick={e => nextRound(round)}
       >
         Next Round
       </button>
@@ -41,7 +36,11 @@ export const Matches = styled.div`
   justify-content: center;
 `
 
+const mapStateToProps = state => ({
+  currentRound: state.currentRound,
+})
+
 export default connect(
-  null, 
+  mapStateToProps, 
   { nextRound }
 )(Round)

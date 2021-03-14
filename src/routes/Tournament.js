@@ -29,8 +29,9 @@ const Tournament = ({ rounds, startTournament, tournament, winner }) => {
       }
       {
         winner && 
-        <Matches>
-          <SelectChar>
+        <Matches style={{width: '15em'}}>
+          <h1 style={{color: 'green'}}>Winner!</h1>
+          <SelectChar style={{border: '3px solid gold'}}>
             <img 
               src={`${winner.thumbnail.path}/standard_small.${winner.thumbnail.extension}`} 
               alt={winner.name}

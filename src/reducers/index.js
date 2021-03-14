@@ -27,7 +27,8 @@ const reducer = (state = initialState, { type, payload }) => {
         rounds: [...state.rounds, {}],
         tournamentWinner: state.characters.find(character => {
           return character.id === payload.id;
-        })
+        }),
+        currentRound: 'winner'
       }
 
     case  NEXT_ROUND:
