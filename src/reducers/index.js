@@ -5,9 +5,11 @@ import { FETCH_CHARACTERS_START,
    
 } from "../actions"
 
+import {ncaa} from '../csv/ncaa.js'
+
 const initialState = {
   characters: [],
-  tournament: [],
+  tournament: ncaa,
   rounds: [
     {id: 0, matches: [], winners: []}
   ], 

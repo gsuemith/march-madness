@@ -28,14 +28,14 @@ const Ranking = ({ tournament, characters, startTournament }) => {
   return (
     <Container>
       {
-        tournament.map((id, index) => (
-          <Competitor 
-            key={id}
-            seed={index + 1} 
-            character={characters
-            .find(character => character.id === id)}
-          />
-        ))
+        // tournament.map((id, index) => (
+        //   <Competitor 
+        //     key={id}
+        //     seed={index + 1} 
+        //     character={characters
+        //     .find(character => character.id === id)}
+        //   />
+        // ))
       }
       <Card onClick={start}>
         <h2 >Start Tournament!</h2>

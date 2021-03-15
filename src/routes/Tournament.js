@@ -12,7 +12,8 @@ const Tournament = ({ rounds, startTournament, tournament, winner }) => {
   console.log(rounds)
   return (
     <div>
-      <p onClick={e => startTournament(tournament)}
+      <p 
+        onClick={e => startTournament(tournament)}
         style={{padding: '0 2em'}}
       >
         This tournament is simulated with a simple random number generator to determine the winner of each matchup. The probabilities are based on the ranking you've provided where the top seed is a 13-1 favorite against the lowest seed and adjacent seeds have near even probability.  

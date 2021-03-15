@@ -13,6 +13,7 @@ export const MOVE_UP = "MOVE_UP"
 export const MOVE_DOWN = "MOVE_DOWN"
 
 export const RUN_MATCH = "RUN_MATCH"
+export const RUN_BYES = "RUN_BYES"
 export const UPDATE_WINNERS = "UPDATE_WINNERS"
 export const NEXT_ROUND = "NEXT_ROUND"
 export const DECLARE_WINNER = "DECLARE_WINNER"
@@ -25,9 +26,9 @@ export const action = () => {
   return {type: TYPE, payload: ''}
 }
 
-export const nextRound = round => {
+export const nextRound = round => dispatch => {
   if (round.winners.length === 1){
-    return({
+    dispatch({
       type:DECLARE_WINNER, 
       payload:round.winners[0]
     })
@@ -44,8 +45,8 @@ export const nextRound = round => {
       })
     }
   })
-
-  return {type: NEXT_ROUND, payload: newRound}
+  console.log('new round', newRound);
+  dispatch({type: NEXT_ROUND, payload: newRound})
 }
 
 export const runMatch = match => dispatch => {
@@ -58,6 +59,14 @@ export const runMatch = match => dispatch => {
     payload: {...match, winner: winner}
   });
   dispatch({type:UPDATE_WINNERS})
+}
+
+export const runByes = round => dispatch => {
+  round.forEach(match => {
+    if(match.challenger.id === 'bye'){
+      runMatch(match)(dispatch)
+    }
+  })
 }
 
 export const moveUp = (id) => {
