@@ -16,7 +16,7 @@ const Tournament = ({ rounds, startTournament, tournament, winner }) => {
         onClick={e => startTournament(tournament)}
         style={{padding: '0 2em'}}
       >
-        This tournament is simulated with a simple random number generator to determine the winner of each matchup. The probabilities are based on the ranking you've provided where the top seed is a 13-1 favorite against the lowest seed and adjacent seeds have near even probability.  
+        This tournament is simulated with a simple random number generator to determine the winner of each matchup. The probabilities are based on the team's Elo rankings as of Sunday, March 14, 2021
       </p>
       <Rounds>
       {
@@ -29,15 +29,13 @@ const Tournament = ({ rounds, startTournament, tournament, winner }) => {
         ))
       }
       {
-        winner && 
+        winner 
+        && 
         <Matches style={{width: '18em'}}>
           <SelectChar 
-            style={{border: '3px solid gold', height: '80px'}}>
-            <img 
-              src={`${winner.thumbnail.path}/landscape_small.${winner.thumbnail.extension}`} 
-              alt={winner.name}
-            />
-            <Name>{winner.name}</Name>
+            style={{border: '3px solid gold', height: '80px'}}
+          >
+            <Name>{winner.id}</Name>
           </SelectChar>
         </Matches>
       }
@@ -48,7 +46,7 @@ const Tournament = ({ rounds, startTournament, tournament, winner }) => {
 
 const Rounds = styled.div`
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
 `
 
 const mapStateToProps = state => ({

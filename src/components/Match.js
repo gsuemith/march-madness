@@ -20,30 +20,22 @@ const Match = ({ match, characters, runMatch }) => {
 
   if(match.challenger.id === 'bye'){
 
-    return (<div></div>)
+    return (<></>)
   }
 
   return (
     <MatchCard>
       <SelectChar winner={match.winner} role='defender'>
-        <h3 className="seed">{'#' + match.defender.seed}</h3>
-        {/* <img 
-          src={`${defender.thumbnail.path}/standard_small.${defender.thumbnail.extension}`} 
-          alt={defender.name}
-        /> */}
+        <h6 className="seed">{'#' + match.defender.seed}</h6>
         <Name loser={match.winner === 'challenger'}>
           {match.defender.id.split(' (')[0]}
         </Name>
       </SelectChar>
       <SelectChar winner={match.winner} role='challenger'>
-        <h3 className="seed">{'#' + match.challenger.seed}</h3>
+        <h6 className="seed">{'#' + match.challenger.seed}</h6>
         { 
           match.challenger ?
           <>
-            {/* <img 
-              src={`${challenger.thumbnail.path}/standard_small.${challenger.thumbnail.extension}`} 
-              alt={challenger.name}
-            /> */}
             <Name loser={match.winner === 'defender'}>{match.challenger.id.split(' (')[0]}</Name>
           </>
           :
@@ -51,15 +43,15 @@ const Match = ({ match, characters, runMatch }) => {
         }
       </SelectChar>
       <button onClick={fight} disabled={match.winner}>
-        Fight!
+        Play!
       </button>
     </MatchCard>
   )
 }
 
 const MatchCard = styled.div`
-  margin-top: 3em;
-  width: 18em;
+  margin-top: .7em;
+  width: 10em;
 `
 
 const mapStateToProps = state => ({

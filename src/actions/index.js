@@ -86,12 +86,12 @@ export const startTournament = (ids) => {
       defender: {
         id: matchup[0], 
         rating: 256-(index*2 + 1)*128/array.length,
-        seed: 1 + index,
+        seed: Math.floor(index / 4) + 1
       },
       challenger: {
         id: matchup[1], 
         rating: (index*2 + 1)*128/array.length-256,
-        seed: array.length*2 - index,
+        seed: Math.floor(index / 4) + 1,
       }
     }
     return newMatch

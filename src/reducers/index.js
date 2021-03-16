@@ -27,9 +27,7 @@ const reducer = (state = initialState, { type, payload }) => {
       return {
         ...state,
         rounds: [...state.rounds, {}],
-        tournamentWinner: state.characters.find(character => {
-          return character.id === payload.id;
-        }),
+        tournamentWinner: payload.id,
         currentRound: 'winner'
       }
 

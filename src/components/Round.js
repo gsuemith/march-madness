@@ -10,8 +10,10 @@ const Round = ({ matches, round, nextRound, currentRound, runMatch }) => {
 
   useEffect(() => {
     if(round.winners.length === matches.length 
-      && currentRound === round.id 
-      && !roundPending){
+      && 
+      currentRound === round.id 
+      && 
+      !roundPending){
       nextRound(round);
     }
   }, [round.winners, roundPending])
@@ -33,23 +35,25 @@ const Round = ({ matches, round, nextRound, currentRound, runMatch }) => {
     <>
     <Matches>
     {
-      matches &&
+      matches 
+      &&
       matches.map(match => (
         <Match match={match} key={match.id}/>
-        ))
+      ))
     }
     </Matches>
 
     <Matches> {/**Next round button */}
     {
-      round.winners && 
+      round.winners 
+      && 
       round.winners.length === matches.filter(match => {
         return match.challenger.id !== 'bye'
-      }).length &&
-      currentRound === round.id &&
-      <button 
-        onClick={newRound}
-      >
+      }).length 
+      &&
+      currentRound === round.id 
+      &&
+      <button onClick={newRound}>
         {matches.length === 1 ? 'And the winner is...' : 'Next Round'}
       </button>
     }
