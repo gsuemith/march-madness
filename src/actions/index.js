@@ -3,6 +3,7 @@ import { FORBIDDEN_GROUPS, getURL, GUARDIANS_OF_THE_GALAXY as gotg
 } from '../api'
 
 import seed, { whoWins } from './seed'
+import { eloRatings } from '../csv/elo'
 
 export const TYPE = "TYPE"
 
@@ -13,6 +14,7 @@ export const MOVE_UP = "MOVE_UP"
 export const MOVE_DOWN = "MOVE_DOWN"
 
 export const RUN_MATCH = "RUN_MATCH"
+export const RUN_BYES = "RUN_BYES"
 export const UPDATE_WINNERS = "UPDATE_WINNERS"
 export const NEXT_ROUND = "NEXT_ROUND"
 export const DECLARE_WINNER = "DECLARE_WINNER"
@@ -25,9 +27,9 @@ export const action = () => {
   return {type: TYPE, payload: ''}
 }
 
-export const nextRound = round => {
+export const nextRound = round => dispatch => {
   if (round.winners.length === 1){
-    return({
+    dispatch({
       type:DECLARE_WINNER, 
       payload:round.winners[0]
     })
@@ -44,8 +46,8 @@ export const nextRound = round => {
       })
     }
   })
-
-  return {type: NEXT_ROUND, payload: newRound}
+  
+  dispatch({type: NEXT_ROUND, payload: newRound})
 }
 
 export const runMatch = match => dispatch => {
@@ -60,6 +62,14 @@ export const runMatch = match => dispatch => {
   dispatch({type:UPDATE_WINNERS})
 }
 
+export const runByes = round => dispatch => {
+  round.forEach(match => {
+    if(match.challenger.id === 'bye'){
+      runMatch(match)(dispatch)
+    }
+  })
+}
+
 export const moveUp = (id) => {
   return {type: MOVE_UP, payload: id}
 }
@@ -71,18 +81,19 @@ export const moveDown = (id) => {
 export const startTournament = (ids) => {
   
   let initial = seed(ids).map((matchup, index, array) => {
+
     const newMatch = {
       id: index,
       winner: null,
       defender: {
         id: matchup[0], 
-        rating: 256-(index*2 + 1)*128/array.length,
-        seed: 1 + index,
+        rating: eloRatings.find(elo => elo.name === matchup[0]).rating,
+        seed: Math.floor(index / 4) + 1
       },
       challenger: {
         id: matchup[1], 
-        rating: (index*2 + 1)*128/array.length-256,
-        seed: array.length*2 - index,
+        rating: eloRatings.find(elo => elo.name === matchup[1]).rating,
+        seed: Math.floor(index / 4) + 1,
       }
     }
     return newMatch
@@ -134,7 +145,7 @@ export const getCharacters = () => dispatch => {
           
           // Dispatch list of characters in alpha order
           characters.sort((a,b) => a.name.localeCompare(b.name))
-          // console.log("chars", characters)
+          
           dispatch({
             type: FETCH_CHARACTERS_SUCCESS, 
             payload: characters

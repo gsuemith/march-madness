@@ -5,9 +5,11 @@ import { FETCH_CHARACTERS_START,
    
 } from "../actions"
 
+import {ncaa} from '../csv/ncaa.js'
+
 const initialState = {
   characters: [],
-  tournament: [],
+  tournament: ncaa,
   rounds: [
     {id: 0, matches: [], winners: []}
   ], 
@@ -25,9 +27,7 @@ const reducer = (state = initialState, { type, payload }) => {
       return {
         ...state,
         rounds: [...state.rounds, {}],
-        tournamentWinner: state.characters.find(character => {
-          return character.id === payload.id;
-        }),
+        tournamentWinner: payload.id,
         currentRound: 'winner'
       }
 
