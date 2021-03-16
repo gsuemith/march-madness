@@ -23,8 +23,9 @@ export default function seed(ids){
 }
 
 // elo rating simulator
+export const probability = (a, b) => 1/(1 + 10**((b - a)/400));
 export const whoWins = (ratingA, ratingB) => {
-  const expectedA = 1/(1 + 10**((ratingB - ratingA)/400))
+  const expectedA = probability(ratingA, ratingB);
   
   return random() < expectedA;
 }
