@@ -2,6 +2,7 @@ import { Switch, Route } from 'react-router-dom'
 
 import Home from './routes/Home'
 import Tournament from './routes/Tournament'
+import Testing from './routes/Testing'
 
 import './App.css';
 
@@ -10,6 +11,7 @@ function App() {
     <div className="App">
       <Switch>
         <Route path="/tournament" component={Tournament}/>
+        <Route path="/testing" component={Testing}/>
         <Route path="/" component={Home}/>
       </Switch>
     </div>

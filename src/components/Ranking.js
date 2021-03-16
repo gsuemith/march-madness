@@ -1,9 +1,9 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useHistory } from 'react-router'
 import { connect } from 'react-redux'
 import styled from 'styled-components'
 
-import Competitor, { Card } from './Competitor'
+import { Card } from './Competitor'
 import { startTournament } from '../actions'
 
 const Container = styled.div`
@@ -25,18 +25,12 @@ const Ranking = ({ tournament, characters, startTournament }) => {
     startTournament(tournament);
   }
 
+  useEffect(() => {
+    
+  }, [])
+
   return (
     <Container>
-      {
-        tournament.map((id, index) => (
-          <Competitor 
-            key={id}
-            seed={index + 1} 
-            character={characters
-            .find(character => character.id === id)}
-          />
-        ))
-      }
       <Card onClick={start}>
         <h2 >Start Tournament!</h2>
       </Card>

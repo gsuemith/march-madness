@@ -32,7 +32,7 @@ export const SelectChar = styled.div`
   margin: 3px 0;
   box-shadow: 1px 1px 1px black;
   width: 95%;
-  height: 45px;
+  height: 1.5em;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -60,6 +60,7 @@ export const SelectChar = styled.div`
 export const Name = styled.span`
   margin-left: .5em;
   text-decoration: ${({ loser }) => loser ?'line-through':'none'};
+  font-size: smaller;
   `
 
 
