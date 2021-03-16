@@ -11,11 +11,16 @@ export const SelectChar = styled.div`
   display: flex;
   align-items: center;
   color: #999;
+  color: ${({ winner, role }) => {
+      if(winner){
+        return winner === role ? 'black' : '#444'
+      } else {return 'none'}
+      }};
   background-color: #333;
   background-color: ${props => props.bgColor};
   background-color: ${({ winner, role }) => {
       if(winner){
-        return winner === role ? 'white' : '111'
+        return winner === role ? 'white' : '#222'
       } else {return 'none'}
       }};
   transition: .3s ease-in;
