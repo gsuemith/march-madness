@@ -3,63 +3,71 @@ import { connect } from 'react-redux'
 import styled from 'styled-components'
 
 import { SelectChar, Name } from './CharSelector'
-import { runMatch } from '../actions'
+import { runMatch, chooseWinner } from '../actions'
 
-const Match = ({ match, characters, runMatch }) => {
-  const defender = characters.find(character => {
-    return character.id === match.defender.id
-  })
+import { probability } from '../actions/seed'
 
-  const challenger = characters.find(character => {
-    return character.id === match.challenger.id
-  })
+const Match = ({ match, runMatch, chooseWinner }) => {
 
   const fight = e => {
-    e.preventDefault();
     runMatch(match)
   }
 
+  if(match.challenger.id === 'bye'){
+    return (<></>)
+  }
+
+  const defenderWins = Math.round(probability(match.defender.rating, match.challenger.rating)*100)
+
   return (
     <MatchCard>
-      <SelectChar winner={match.winner} role='defender'>
-        <h3 className="seed">{'#' + match.defender.seed}</h3>
-        <img 
-          src={`${defender.thumbnail.path}/standard_small.${defender.thumbnail.extension}`} 
-          alt={defender.name}
-        />
+      <SelectChar 
+        winner={match.winner} 
+        role='defender'
+        onClick={e => chooseWinner(match, 'defender')}
+      >
+        <h6 className="seed">{'#' + match.defender.seed}</h6>
+        <Name>
+          {Math.round(probability(match.defender.rating, match.challenger.rating)*100)}%
+        </Name>
         <Name loser={match.winner === 'challenger'}>
-          {defender.name.split(' (')[0]}
+          {match.defender.id.split(' (')[0]}
         </Name>
       </SelectChar>
-      <SelectChar winner={match.winner} role='challenger'>
-        <h3 className="seed">{'#' + match.challenger.seed}</h3>
+      <SelectChar 
+        winner={match.winner} 
+        role='challenger'
+        onClick={e => chooseWinner(match, 'challenger')}
+      >
+        <h6 className="seed">{'#' + match.challenger.seed}</h6>
         { 
-          challenger ?
+          match.challenger ?
           <>
-            <img 
-              src={`${challenger.thumbnail.path}/standard_small.${challenger.thumbnail.extension}`} 
-              alt={challenger.name}
-            />
-            <Name loser={match.winner === 'defender'}>{challenger.name.split(' (')[0]}</Name>
+            <Name>
+              {100 - defenderWins}%
+            </Name>
+            <Name loser={match.winner === 'defender'}>{match.challenger.id.split(' (')[0]}</Name>
           </>
           :
           <Name loser={match.winner === 'defender'}>bye</Name>
         }
       </SelectChar>
       <button onClick={fight} disabled={match.winner}>
-        Fight!
+        Predict
       </button>
     </MatchCard>
   )
 }
 
 const MatchCard = styled.div`
-  margin-top: 3em;
-  width: 18em;
+  margin-top: .7em;
+  width: 12em;
 `
 
 const mapStateToProps = state => ({
   characters: state.characters
 })
 
-export default connect(mapStateToProps, { runMatch })(Match)
+export default connect(
+  mapStateToProps, 
+  { runMatch, chooseWinner })(Match)
