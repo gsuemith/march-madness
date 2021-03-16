@@ -31,6 +31,14 @@ const Round = ({ matches, round, nextRound, currentRound, runMatch }) => {
      setPending(false)
   }
 
+  const predictAll = e => {
+    matches.forEach(match => {
+      if(!match.winner){
+        runMatch(match);
+      }
+    })
+  }
+
   return (
     <>
     <Matches>
@@ -47,15 +55,16 @@ const Round = ({ matches, round, nextRound, currentRound, runMatch }) => {
     {
       round.winners 
       && 
-      round.winners.length === matches.filter(match => {
-        return match.challenger.id !== 'bye'
-      }).length 
+      round.winners.length === matches.length 
       &&
       currentRound === round.id 
-      &&
+      ?
       <button onClick={newRound}>
         {matches.length === 1 ? 'And the winner is...' : 'Next Round'}
       </button>
+      :
+      roundPending &&
+      <button onClick={predictAll}>Predict All</button>
     }
     </Matches>
     </>
