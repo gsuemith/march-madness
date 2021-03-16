@@ -3,7 +3,7 @@ import { useHistory } from 'react-router'
 import { connect } from 'react-redux'
 import styled from 'styled-components'
 
-import { Card } from './Competitor'
+import { Card } from '../styles'
 import { startTournament } from '../actions'
 
 const Container = styled.div`
@@ -17,12 +17,12 @@ const Container = styled.div`
 `
 
 
-const Ranking = ({ tournament, characters, startTournament }) => {
+const Landing = ({ tournament, characters, startTournament }) => {
   const { push } = useHistory();
 
   const start = e => {
     push('/tournament')
-    startTournament(tournament);
+    //startTournament(tournament);
   }
 
   useEffect(() => {
@@ -44,4 +44,4 @@ const mapStateToProps = state => ({
 })
 
 export default connect(
-  mapStateToProps, { startTournament })(Ranking)
+  mapStateToProps, { startTournament })(Landing)

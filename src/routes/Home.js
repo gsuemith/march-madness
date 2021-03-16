@@ -2,7 +2,7 @@ import React from 'react'
 
 import styled from 'styled-components'
 
-import Ranking from '../components/Ranking'
+import Landing from '../components/Landing'
 
 const HomeLayout = styled.div`
   display: flex;
@@ -12,7 +12,7 @@ const HomeLayout = styled.div`
 const Home = () => {
   return (
     <HomeLayout>
-      <Ranking />
+      <Landing />
     </HomeLayout>
   )
 }
