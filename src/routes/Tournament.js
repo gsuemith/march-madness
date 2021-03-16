@@ -34,7 +34,7 @@ const Tournament = ({ rounds, startTournament, tournament, winner }) => {
           <SelectChar 
             style={{border: '3px solid gold', height: '80px'}}
           >
-            <Name>{winner.id}</Name>
+            <Name style={{textAlign: 'center'}}>Congrats {winner}!</Name>
           </SelectChar>
         </Matches>
       }

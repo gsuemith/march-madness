@@ -26,7 +26,7 @@ const reducer = (state = initialState, { type, payload }) => {
     case DECLARE_WINNER:
       return {
         ...state,
-        rounds: [...state.rounds, {}],
+        // rounds: [...state.rounds, {}],
         tournamentWinner: payload.id,
         currentRound: 'winner'
       }

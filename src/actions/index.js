@@ -38,12 +38,12 @@ export const chooseWinner = (match, pick) => dispatch => {
   dispatch({type:UPDATE_WINNERS})
 }
 
-export const nextRound = round => dispatch => {
+export const nextRound = round => {
   if (round.winners.length === 1){
-    dispatch({
+    return {
       type:DECLARE_WINNER, 
       payload:round.winners[0]
-    })
+    }
   }
   const newRound = [];
 
@@ -58,7 +58,7 @@ export const nextRound = round => dispatch => {
     }
   })
   
-  dispatch({type: NEXT_ROUND, payload: newRound})
+  return {type: NEXT_ROUND, payload: newRound};
 }
 
 export const runMatch = match => dispatch => {

@@ -13,7 +13,7 @@ const Match = ({ match, runMatch, chooseWinner }) => {
     runMatch(match)
   }
 
-  if(match.challenger.id === 'bye'){
+  if(match.challenger && match.challenger.id === 'bye'){
     return (<></>)
   }
 
