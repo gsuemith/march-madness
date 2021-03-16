@@ -3,6 +3,7 @@ import { FORBIDDEN_GROUPS, getURL, GUARDIANS_OF_THE_GALAXY as gotg
 } from '../api'
 
 import seed, { whoWins } from './seed'
+import { eloRatings } from '../csv/elo'
 
 export const TYPE = "TYPE"
 
@@ -45,7 +46,7 @@ export const nextRound = round => dispatch => {
       })
     }
   })
-  console.log('new round', newRound);
+  
   dispatch({type: NEXT_ROUND, payload: newRound})
 }
 
@@ -80,17 +81,18 @@ export const moveDown = (id) => {
 export const startTournament = (ids) => {
   
   let initial = seed(ids).map((matchup, index, array) => {
+
     const newMatch = {
       id: index,
       winner: null,
       defender: {
         id: matchup[0], 
-        rating: 256-(index*2 + 1)*128/array.length,
+        rating: eloRatings.find(elo => elo.name === matchup[0]).rating,
         seed: Math.floor(index / 4) + 1
       },
       challenger: {
         id: matchup[1], 
-        rating: (index*2 + 1)*128/array.length-256,
+        rating: eloRatings.find(elo => elo.name === matchup[1]).rating,
         seed: Math.floor(index / 4) + 1,
       }
     }
@@ -143,7 +145,7 @@ export const getCharacters = () => dispatch => {
           
           // Dispatch list of characters in alpha order
           characters.sort((a,b) => a.name.localeCompare(b.name))
-          // console.log("chars", characters)
+          
           dispatch({
             type: FETCH_CHARACTERS_SUCCESS, 
             payload: characters

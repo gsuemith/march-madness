@@ -9,7 +9,7 @@ import Round from '../components/Round'
 import { startTournament } from '../actions'
 
 const Tournament = ({ rounds, startTournament, tournament, winner }) => {
-  console.log(rounds)
+  
   return (
     <div>
       <p 

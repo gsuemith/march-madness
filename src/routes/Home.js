@@ -2,7 +2,6 @@ import React from 'react'
 
 import styled from 'styled-components'
 
-import CharacterList from '../components/CharacterList'
 import Ranking from '../components/Ranking'
 
 const HomeLayout = styled.div`

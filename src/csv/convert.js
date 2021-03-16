@@ -17,7 +17,7 @@ var file = fs.createWriteStream('elo.js')
 file.on('error', err => console.log("error", err));
 
 elo2021().forEach(line => {
-  file.write(`"${line[0]}", ${line[1]},\n`)
+  file.write(`{name:"${line[0]}", rating:${line[1]}},\n`)
 })
 
 file.end();

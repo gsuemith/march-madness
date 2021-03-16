@@ -5,6 +5,8 @@ import styled from 'styled-components'
 import { SelectChar, Name } from './CharSelector'
 import { runMatch } from '../actions'
 
+import { probability } from '../actions/seed'
+
 const Match = ({ match, characters, runMatch }) => {
   // const defender = characters.find(character => {
   //   return character.id === match.defender.id
@@ -23,10 +25,15 @@ const Match = ({ match, characters, runMatch }) => {
     return (<></>)
   }
 
+  const defenderWins = Math.round(probability(match.defender.rating, match.challenger.rating)*100)
+
   return (
     <MatchCard>
       <SelectChar winner={match.winner} role='defender'>
         <h6 className="seed">{'#' + match.defender.seed}</h6>
+        <Name>
+          {Math.round(probability(match.defender.rating, match.challenger.rating)*100)}%
+        </Name>
         <Name loser={match.winner === 'challenger'}>
           {match.defender.id.split(' (')[0]}
         </Name>
@@ -36,6 +43,9 @@ const Match = ({ match, characters, runMatch }) => {
         { 
           match.challenger ?
           <>
+            <Name>
+              {100 - defenderWins}%
+            </Name>
             <Name loser={match.winner === 'defender'}>{match.challenger.id.split(' (')[0]}</Name>
           </>
           :
@@ -43,7 +53,7 @@ const Match = ({ match, characters, runMatch }) => {
         }
       </SelectChar>
       <button onClick={fight} disabled={match.winner}>
-        Play!
+        Predict
       </button>
     </MatchCard>
   )
@@ -51,7 +61,7 @@ const Match = ({ match, characters, runMatch }) => {
 
 const MatchCard = styled.div`
   margin-top: .7em;
-  width: 10em;
+  width: 12em;
 `
 
 const mapStateToProps = state => ({
