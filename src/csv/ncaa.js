@@ -12,7 +12,7 @@ const ncaaArray = [
 "Wichita State","Utah State","Syracuse","Michigan State",
 "UC Santa Barbara","Winthrop","Oregon State","Georgetown",
 "Ohio","North Texas","Liberty","UNC Greensboro",
-"Eastern Washington","Colgate","Morehead State","Abilene Christian",
+"E. Washington","Colgate","Morehead State","Abilene Christian",
 "Grand Canyon","Oral Roberts","Cleveland State","Iona",
 "Norfolk State","Hartford","Drexel","Mount St Mary's",
 "Appalachian State","bye","bye","Texas Southern",

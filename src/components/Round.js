@@ -55,9 +55,7 @@ const Round = ({ matches, round, nextRound, currentRound, runMatch }) => {
     {
       round.winners 
       && 
-      round.winners.length === matches.filter(match => {
-        return match.challenger.id !== 'bye'
-      }).length 
+      round.winners.length === matches.length 
       &&
       currentRound === round.id 
       ?
