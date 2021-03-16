@@ -13,7 +13,6 @@ const HomeLayout = styled.div`
 const Home = () => {
   return (
     <HomeLayout>
-      {/* <CharacterList /> */}
       <Ranking />
     </HomeLayout>
   )

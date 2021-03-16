@@ -13,6 +13,15 @@ const elo2021 = () => {
 
 console.log(elo2021())
 
+var file = fs.createWriteStream('elo.js')
+file.on('error', err => console.log("error", err));
+
+elo2021().forEach(line => {
+  file.write(`"${line[0]}", ${line[1]},\n`)
+})
+
+file.end();
+
 const ncaa = () => {
   const data = fs.readFileSync('ncaa.csv')
     .toString().split('\n')
