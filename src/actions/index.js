@@ -18,6 +18,7 @@ export const RUN_BYES = "RUN_BYES"
 export const UPDATE_WINNERS = "UPDATE_WINNERS"
 export const NEXT_ROUND = "NEXT_ROUND"
 export const DECLARE_WINNER = "DECLARE_WINNER"
+export const CHOOSE_WINNER = "CHOOSE_WINNER"
 
 export const FETCH_CHARACTERS_START = "FETCH_CHARACTERS_START"
 export const FETCH_CHARACTERS_SUCCESS = "FETCH_CHARACTERS_SUCCESS"
@@ -25,6 +26,16 @@ export const FETCH_CHARACTERS_FAIL = "FETCH_CHARACTERS_FAIL"
 
 export const action = () => {
   return {type: TYPE, payload: ''}
+}
+
+export const chooseWinner = (match, pick) => dispatch => {
+  dispatch({
+    type: RUN_MATCH, 
+    payload: {
+      ...match, 
+      winner: pick !== match.winner ? pick : null}
+  });
+  dispatch({type:UPDATE_WINNERS})
 }
 
 export const nextRound = round => dispatch => {

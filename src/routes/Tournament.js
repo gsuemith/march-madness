@@ -12,11 +12,10 @@ const Tournament = ({ rounds, startTournament, tournament, winner }) => {
   
   return (
     <div>
-      <p 
-        onClick={e => startTournament(tournament)}
-        style={{padding: '0 2em'}}
-      >
-        This tournament is simulated with a simple random number generator to determine the winner of each matchup. The probabilities are based on the team's Elo rankings as of Sunday, March 14, 2021
+      <p style={{padding: '0 2em'}}>
+        This tournament is simulated with a simple random number generator to determine the winner of each matchup. The probabilities are based on the team's Elo rankings as of Sunday, March 14, 2021.
+        <br/><br/>
+        Below, you can choose a winner, have the computer predict a winner for that game, or have the computer pick a winner for every unpicked game in that round.
       </p>
       <Rounds>
       {
