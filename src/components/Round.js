@@ -63,7 +63,7 @@ const Round = ({ matches, round, nextRound, currentRound, runMatch }) => {
         {matches.length === 1 ? 'And the winner is...' : 'Next Round'}
       </button>
       :
-      roundPending &&
+      (roundPending || currentRound === 1) &&
       <button onClick={predictAll}>Predict All</button>
     }
     </Matches>

@@ -1,18 +1,28 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
 import styled from 'styled-components'
 
-import { SelectChar, Name } from '../components/CharSelector'
+import { SelectChar, Name } from '../styles'
 import { Matches } from '../components/Round'
 
 import Round from '../components/Round'
 import { startTournament } from '../actions'
 
 const Tournament = ({ rounds, startTournament, tournament, winner }) => {
+  useEffect(() => {
+    window.onload = startTournament(tournament)
+  }, [])
   
+  const restart = e => {
+    e.preventDefault();
+    startTournament(tournament);
+  }
+
   return (
     <div>
-      <p style={{padding: '0 2em'}}>
+      {rounds.length > 1 && 
+      <button onClick={restart}>Restart Tournament</button>}
+      <p style={{padding: '0 2em', color:'#aaa'}}>
         This tournament is simulated with a simple random number generator to determine the winner of each matchup. The probabilities are based on the team's Elo rankings as of Sunday, March 14, 2021.
         <br/><br/>
         Below, you can choose a winner, have the computer predict a winner for that game, or have the computer pick a winner for every unpicked game in that round.
@@ -34,7 +44,7 @@ const Tournament = ({ rounds, startTournament, tournament, winner }) => {
           <SelectChar 
             style={{border: '3px solid gold', height: '80px'}}
           >
-            <Name>{winner.id}</Name>
+            <Name style={{textAlign: 'center'}}>Congrats {winner}!</Name>
           </SelectChar>
         </Matches>
       }
