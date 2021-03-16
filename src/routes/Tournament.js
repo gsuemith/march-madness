@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import styled from 'styled-components'
 
-import { SelectChar, Name } from '../components/CharSelector'
+import { SelectChar, Name } from '../styles'
 import { Matches } from '../components/Round'
 
 import Round from '../components/Round'
@@ -12,7 +12,7 @@ const Tournament = ({ rounds, startTournament, tournament, winner }) => {
   
   return (
     <div>
-      <p style={{padding: '0 2em'}}>
+      <p style={{padding: '0 2em', color:'#aaa'}}>
         This tournament is simulated with a simple random number generator to determine the winner of each matchup. The probabilities are based on the team's Elo rankings as of Sunday, March 14, 2021.
         <br/><br/>
         Below, you can choose a winner, have the computer predict a winner for that game, or have the computer pick a winner for every unpicked game in that round.

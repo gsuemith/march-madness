@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import styled from 'styled-components'
 
-import { SelectChar, Name } from './CharSelector'
+import { SelectChar, Name } from '../styles'
 import { runMatch, chooseWinner } from '../actions'
 
 import { probability } from '../actions/seed'
