@@ -13,6 +13,11 @@ export const SelectChar = styled.div`
   color: #999;
   background-color: #333;
   background-color: ${props => props.bgColor};
+  background-color: ${({ winner, role }) => {
+      if(winner){
+        return winner === role ? 'white' : '111'
+      } else {return 'none'}
+      }};
   transition: .3s ease-in;
   cursor: pointer;
   :hover {
