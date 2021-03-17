@@ -55,7 +55,7 @@ const reducer = (state = initialState, { type, payload }) => {
                   ...match[match.winner],
                   rating: newRating(
                     match[match.winner].rating,
-                    match[match.winner === 'defender' ? 'defender' : 'challenger'],
+                    match[match.winner === 'defender' ? 'challenger' : 'defender'].rating,
                     1
                   ),
                 }]

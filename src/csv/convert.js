@@ -1,7 +1,7 @@
 var fs = require('fs');
 
 const elo2021 = () => {
-  const data = fs.readFileSync('elo.csv')
+  const data = fs.readFileSync('rating538.csv')
     .toString().split('\n')
     .map(string => string.split(',')
     .map(string => {
@@ -13,11 +13,11 @@ const elo2021 = () => {
 
 console.log(elo2021())
 
-var file = fs.createWriteStream('elo.js')
+var file = fs.createWriteStream('rating538.js')
 file.on('error', err => console.log("error", err));
 
 elo2021().forEach(line => {
-  file.write(`{name:"${line[0]}", rating:${line[1]}},\n`)
+  file.write(`{name:"${line[0]}", rating:${line[1]*30.464}},\n`)
 })
 
 file.end();

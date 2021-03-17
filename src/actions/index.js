@@ -3,7 +3,7 @@ import { FORBIDDEN_GROUPS, getURL, GUARDIANS_OF_THE_GALAXY as gotg
 } from '../api'
 
 import seed, { whoWins } from './seed'
-import { eloRatings } from '../csv/elo'
+import { rating538 } from '../csv/rating538'
 
 export const TYPE = "TYPE"
 
@@ -92,18 +92,18 @@ export const moveDown = (id) => {
 export const startTournament = (ids) => {
   
   let initial = seed(ids).map((matchup, index, array) => {
-
+    
     const newMatch = {
       id: index,
       winner: null,
       defender: {
         id: matchup[0], 
-        rating: eloRatings.find(elo => elo.name === matchup[0]).rating,
+        rating: rating538.find(elo => elo.name === matchup[0]).rating,
         seed: Math.floor(index / 4) + 1
       },
       challenger: {
         id: matchup[1], 
-        rating: eloRatings.find(elo => elo.name === matchup[1]).rating,
+        rating: rating538.find(elo => elo.name === matchup[1]).rating,
         seed: Math.floor(index / 4) + 1,
       }
     }
