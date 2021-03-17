@@ -10,12 +10,16 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   color: #999;
+  justify-content: start;
   align-content: center;
   font-size: x-large;
   flex-wrap: wrap;
-  width: 40vw;
+  width: 80vw;
   margin: 1em;
-  height: 700px;
+  height: 100vh;
+  * {
+    margin: .5em 1em;
+  }
 `
 
 
