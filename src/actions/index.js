@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { FORBIDDEN_GROUPS, getURL, GUARDIANS_OF_THE_GALAXY as gotg
+import { getURL
 } from '../api'
 
 import seed, { whoWins } from './seed'
@@ -92,7 +92,7 @@ export const moveDown = (id) => {
 export const startTournament = (ids) => {
   
   let initial = seed(ids).map((matchup, index, array) => {
-    
+    // console.log(matchup)
     const newMatch = {
       id: index,
       winner: null,
@@ -137,13 +137,27 @@ export const removeFromTournament = (character) => {
   return {type:REMOVE_FROM_TOURNAMENT, payload:character}
 }
 
-export const getCharacters = () => dispatch => {
+export const getTeams = () => dispatch => {
   dispatch({type:FETCH_TEAMS_START})
   
   axios.get(getURL())
     .then(res =>{
         console.log(res.data)
-        dispatch({type:FETCH_TEAMS_SUCCESS})
+        const teams = rating538.map(team => {
+          return res.data.find(apiTeam => apiTeam.School === team.name)
+        })
+        teams.shift();  //remove 'bye'
+        const teamList = teams.map(team => {
+          return {
+            id: team.School,
+            teamName: team.Name,
+            wins: team.Wins,
+            losses: team.Losses, 
+            logo: team.TeamLogoUrl
+          }
+        })
+        console.log(teamList)
+        dispatch({type:FETCH_TEAMS_SUCCESS, payload:teamList})
       })
 
       

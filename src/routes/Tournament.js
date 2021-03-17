@@ -11,7 +11,7 @@ import { startTournament } from '../actions'
 const Tournament = ({ rounds, startTournament, tournament, winner }) => {
   useEffect(() => {
     window.onload = startTournament(tournament)
-  }, [])
+  }, [tournament, startTournament])
   
   const restart = e => {
     e.preventDefault();

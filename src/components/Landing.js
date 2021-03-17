@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import styled from 'styled-components'
 
 import { Card } from '../styles'
-import { startTournament } from '../actions'
+import { getTeams } from '../actions'
 
 const Container = styled.div`
   display: flex;
@@ -17,12 +17,12 @@ const Container = styled.div`
 `
 
 
-const Landing = ({ tournament, characters, startTournament }) => {
+const Landing = ({ tournament, characters, getTeams }) => {
   const { push } = useHistory();
 
   const start = e => {
     push('/tournament')
-    //startTournament(tournament);
+    getTeams();
   }
 
   useEffect(() => {
@@ -44,4 +44,4 @@ const mapStateToProps = state => ({
 })
 
 export default connect(
-  mapStateToProps, { startTournament })(Landing)
+  mapStateToProps, { getTeams })(Landing)

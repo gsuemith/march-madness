@@ -74,3 +74,6 @@ export const Header = styled.h2`
     cursor: pointer;
   }
 `
+export const TeamLogo = styled.img`
+  height:90%
+`

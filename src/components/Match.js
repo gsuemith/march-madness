@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import styled from 'styled-components'
 
-import { SelectChar, Name } from '../styles'
+import { SelectChar, Name, TeamLogo } from '../styles'
 import { runMatch, chooseWinner } from '../actions'
 
 import { probability } from '../actions/seed'
@@ -30,6 +30,7 @@ const Match = ({ match, runMatch, chooseWinner }) => {
         <Name>
           {Math.round(probability(match.defender.rating, match.challenger.rating)*100)}%
         </Name>
+        <TeamLogo />
         <Name loser={match.winner === 'challenger'}>
           {match.defender.id.split(' (')[0]}
         </Name>
