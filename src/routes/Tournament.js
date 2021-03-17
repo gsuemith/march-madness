@@ -6,17 +6,18 @@ import { SelectChar, Name } from '../styles'
 import { Matches } from '../components/Round'
 
 import Round from '../components/Round'
-import { startTournament } from '../actions'
+import { startTournament, getTeams } from '../actions'
 
-const Tournament = ({ rounds, startTournament, tournament, winner }) => {
+const Tournament = ({ rounds, startTournament, tournament, winner, getTeams }) => {
   useEffect(() => {
     window.onload = startTournament(tournament)
-  }, [tournament, startTournament])
+    getTeams();
+  }, [tournament, startTournament, getTeams])
   
-  const restart = e => {
-    e.preventDefault();
-    startTournament(tournament);
-  }
+  // const restart = e => {
+  //   e.preventDefault();
+  //   startTournament(tournament);
+  // }
 
   return (
     <div>
@@ -64,4 +65,4 @@ const mapStateToProps = state => ({
   winner: state.tournamentWinner
 })
 
-export default connect(mapStateToProps, { startTournament })(Tournament)
+export default connect(mapStateToProps, { startTournament, getTeams })(Tournament)
