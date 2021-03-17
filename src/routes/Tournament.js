@@ -20,8 +20,8 @@ const Tournament = ({ rounds, startTournament, tournament, winner }) => {
 
   return (
     <div>
-      {rounds.length > 1 && 
-      <button onClick={restart}>Restart Tournament</button>}
+      {/* {rounds.length > 1 && 
+      <button onClick={restart}>Restart Tournament</button>} */}
       <p style={{padding: '0 2em', color:'#aaa'}}>
         This tournament is simulated with a simple random number generator to determine the winner of each matchup. The probabilities are based on the team's Elo rankings as of Sunday, March 14, 2021.
         <br/><br/>

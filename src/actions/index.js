@@ -142,7 +142,7 @@ export const getTeams = () => dispatch => {
   
   axios.get(getURL())
     .then(res =>{
-        console.log(res.data)
+        
         const teams = rating538.map(team => {
           return res.data.find(apiTeam => apiTeam.School === team.name)
         })
@@ -156,7 +156,7 @@ export const getTeams = () => dispatch => {
             logo: team.TeamLogoUrl
           }
         })
-        console.log(teamList)
+        
         dispatch({type:FETCH_TEAMS_SUCCESS, payload:teamList})
       })
 

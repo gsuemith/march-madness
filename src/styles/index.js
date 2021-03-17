@@ -75,5 +75,11 @@ export const Header = styled.h2`
   }
 `
 export const TeamLogo = styled.img`
-  height:90%
+  height:70%;
+`
+
+export const Button = styled.button`
+  border-radius: 0;
+  border: none;
+  background-color: lightblue;
 `

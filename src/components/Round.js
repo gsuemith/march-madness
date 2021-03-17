@@ -4,6 +4,7 @@ import styled from 'styled-components'
 
 import Match from './Match'
 import { nextRound, runMatch } from '../actions'
+import { Button } from '../styles'
 
 const Round = ({ matches, round, nextRound, currentRound, runMatch }) => {
   const [roundPending, setPending] = useState(true)
@@ -59,12 +60,12 @@ const Round = ({ matches, round, nextRound, currentRound, runMatch }) => {
       &&
       currentRound === round.id 
       ?
-      <button onClick={newRound}>
+      <Button onClick={newRound}>
         {matches.length === 1 ? 'And the winner is...' : 'Next Round'}
-      </button>
+      </Button>
       :
       (roundPending || currentRound === 1) &&
-      <button onClick={predictAll}>Predict All</button>
+      <Button onClick={predictAll}>Predict All</Button>
     }
     </Matches>
     </>

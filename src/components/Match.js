@@ -2,12 +2,12 @@ import React from 'react'
 import { connect } from 'react-redux'
 import styled from 'styled-components'
 
-import { SelectChar, Name, TeamLogo } from '../styles'
+import { SelectChar, Name, TeamLogo, Button } from '../styles'
 import { runMatch, chooseWinner } from '../actions'
 
 import { probability } from '../actions/seed'
 
-const Match = ({ match, runMatch, chooseWinner }) => {
+const Match = ({ match, runMatch, chooseWinner, teams }) => {
 
   const fight = e => {
     runMatch(match)
@@ -18,6 +18,12 @@ const Match = ({ match, runMatch, chooseWinner }) => {
   }
 
   const defenderWins = Math.round(probability(match.defender.rating, match.challenger.rating)*100)
+
+  const logo = id => {
+    const myTeam = teams.find(team => team.id === id);
+    
+    return myTeam ? myTeam.logo : '#'
+  }
 
   return (
     <MatchCard>
@@ -30,7 +36,7 @@ const Match = ({ match, runMatch, chooseWinner }) => {
         <Name>
           {Math.round(probability(match.defender.rating, match.challenger.rating)*100)}%
         </Name>
-        <TeamLogo />
+        <TeamLogo src={logo(match.defender.id)}/>
         <Name loser={match.winner === 'challenger'}>
           {match.defender.id.split(' (')[0]}
         </Name>
@@ -47,26 +53,28 @@ const Match = ({ match, runMatch, chooseWinner }) => {
             <Name>
               {100 - defenderWins}%
             </Name>
+            <TeamLogo src={logo(match.challenger.id)}/>
             <Name loser={match.winner === 'defender'}>{match.challenger.id.split(' (')[0]}</Name>
           </>
           :
           <Name loser={match.winner === 'defender'}>bye</Name>
         }
       </SelectChar>
-      <button onClick={fight} disabled={match.winner}>
+      { !match.winner &&
+        <Button onClick={fight} disabled={match.winner}>
         Predict
-      </button>
+      </Button>}
     </MatchCard>
   )
 }
 
 const MatchCard = styled.div`
   margin-top: .7em;
-  width: 12em;
+  width: 12.3em;
 `
 
 const mapStateToProps = state => ({
-  characters: state.characters
+  teams: state.teams
 })
 
 export default connect(
