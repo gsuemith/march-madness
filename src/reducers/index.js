@@ -1,5 +1,5 @@
-import { FETCH_CHARACTERS_START, 
-  FETCH_CHARACTERS_SUCCESS, FETCH_CHARACTERS_FAIL, 
+import { FETCH_TEAMS_START, 
+  FETCH_TEAMS_SUCCESS, FETCH_TEAMS_FAIL, 
   MOVE_DOWN, MOVE_UP, START_TOURNAMENT, UPDATE_WINNERS,
   ADD_TO_TOURNAMENT, REMOVE_FROM_TOURNAMENT, RUN_MATCH, NEXT_ROUND, DECLARE_WINNER
    
@@ -9,7 +9,7 @@ import { newRating } from "../actions/seed"
 import {ncaa} from '../csv/ncaa.js'
 
 const initialState = {
-  characters: [],
+  teams: [],
   tournament: ncaa,
   rounds: [
     {id: 0, matches: [], winners: []}
@@ -160,22 +160,22 @@ const reducer = (state = initialState, { type, payload }) => {
         })
       }
     
-    case FETCH_CHARACTERS_START:
+    case FETCH_TEAMS_START:
       return {
         ...state,
         isFetching: true,
         error: ""
       };
     
-    case FETCH_CHARACTERS_SUCCESS:
+    case FETCH_TEAMS_SUCCESS:
       return {
         ...state,
         isFetching: false,
         error: '',
-        characters: payload,
+        teams: payload,
       };
 
-      case FETCH_CHARACTERS_FAIL:
+      case FETCH_TEAMS_FAIL:
         return {
           ...state,
           isFetching: false,

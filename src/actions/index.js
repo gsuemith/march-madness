@@ -20,9 +20,9 @@ export const NEXT_ROUND = "NEXT_ROUND"
 export const DECLARE_WINNER = "DECLARE_WINNER"
 export const CHOOSE_WINNER = "CHOOSE_WINNER"
 
-export const FETCH_CHARACTERS_START = "FETCH_CHARACTERS_START"
-export const FETCH_CHARACTERS_SUCCESS = "FETCH_CHARACTERS_SUCCESS"
-export const FETCH_CHARACTERS_FAIL = "FETCH_CHARACTERS_FAIL"
+export const FETCH_TEAMS_START = "FETCH_TEAMS_START"
+export const FETCH_TEAMS_SUCCESS = "FETCH_TEAMS_SUCCESS"
+export const FETCH_TEAMS_FAIL = "FETCH_TEAMS_FAIL"
 
 export const action = () => {
   return {type: TYPE, payload: ''}
@@ -138,35 +138,20 @@ export const removeFromTournament = (character) => {
 }
 
 export const getCharacters = () => dispatch => {
-  dispatch({type:FETCH_CHARACTERS_START})
+  dispatch({type:FETCH_TEAMS_START})
   
-  axios.get(getURL(
-    'characters', 
-    ['limit=100', 'events=314%2C315%2C29']
-  ))
+  axios.get(getURL())
     .then(res =>{
-      const characters = res.data.data.results
-        .filter(character => {
-          return !FORBIDDEN_GROUPS.find(id => id === character.id)
+        console.log(res.data)
+        dispatch({type:FETCH_TEAMS_SUCCESS})
       })
 
-      axios.all(gotg.map(id => axios.get(getURL(`characters/${id}`, null))))
-        .then(res => {
-          res.forEach(res => characters.push(res.data.data.results[0]))
-          
-          // Dispatch list of characters in alpha order
-          characters.sort((a,b) => a.name.localeCompare(b.name))
-          
-          dispatch({
-            type: FETCH_CHARACTERS_SUCCESS, 
-            payload: characters
-          })
-        })
-    })
+      
+    
     .catch(err =>{
       console.log('errors', err)
       dispatch({
-        type: FETCH_CHARACTERS_FAIL, 
+        type: FETCH_TEAMS_FAIL, 
         payload: err
       })
     })  
