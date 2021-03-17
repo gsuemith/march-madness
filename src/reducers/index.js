@@ -4,6 +4,7 @@ import { FETCH_CHARACTERS_START,
   ADD_TO_TOURNAMENT, REMOVE_FROM_TOURNAMENT, RUN_MATCH, NEXT_ROUND, DECLARE_WINNER
    
 } from "../actions"
+import { newRating } from "../actions/seed"
 
 import {ncaa} from '../csv/ncaa.js'
 
@@ -50,7 +51,14 @@ const reducer = (state = initialState, { type, payload }) => {
             ...round,
             winners: round.matches.reduce((acc, match) => {
               if (match.winner) {
-                return acc = [...acc, match[match.winner]]
+                return acc = [...acc, {
+                  ...match[match.winner],
+                  rating: newRating(
+                    match[match.winner].rating,
+                    match[match.winner === 'defender' ? 'defender' : 'challenger'],
+                    1
+                  ),
+                }]
               }
               return acc;
             }, [])

@@ -29,3 +29,9 @@ export const whoWins = (ratingA, ratingB) => {
   
   return random() < expectedA;
 }
+
+const K  = 20;
+
+export const newRating = (a, b, score) => {
+  return a + K*(score - probability(a,b))
+}
