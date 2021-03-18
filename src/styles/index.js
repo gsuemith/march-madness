@@ -76,6 +76,7 @@ export const Header = styled.h2`
 `
 export const TeamLogo = styled.img`
   height:70%;
+  padding-left: 3px;
 `
 
 export const Button = styled.button`

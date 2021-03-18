@@ -33,10 +33,10 @@ const Match = ({ match, runMatch, chooseWinner, teams }) => {
         onClick={e => chooseWinner(match, 'defender')}
       >
         <h6 className="seed">{'#' + match.defender.seed}</h6>
+        <TeamLogo src={logo(match.defender.id)}/>
         <Name>
           {Math.round(probability(match.defender.rating, match.challenger.rating)*100)}%
         </Name>
-        <TeamLogo src={logo(match.defender.id)}/>
         <Name loser={match.winner === 'challenger'}>
           {match.defender.id.split(' (')[0]}
         </Name>
@@ -50,10 +50,10 @@ const Match = ({ match, runMatch, chooseWinner, teams }) => {
         { 
           match.challenger ?
           <>
+            <TeamLogo src={logo(match.challenger.id)}/>
             <Name>
               {100 - defenderWins}%
             </Name>
-            <TeamLogo src={logo(match.challenger.id)}/>
             <Name loser={match.winner === 'defender'}>{match.challenger.id.split(' (')[0]}</Name>
           </>
           :
