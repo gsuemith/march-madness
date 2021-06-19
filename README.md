@@ -1,6 +1,14 @@
 
 
-# To get started run `npm i`
+## March Madness app
+
+Created for 2021 NCAA Men's Basketball Tournament (aka March Madness)
+
+Users can pick a winner or allow the simulator to pick a winner based on the [Elo Model](https://en.wikipedia.org/wiki/Elo_rating_system)
+
+The tournament is simulated with a simple random number generator to determine the winner of each matchup. The probabilities are based on the team's Elo rankings as of Sunday, March 14, 2021.
+
+## To get started run `npm i`
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
