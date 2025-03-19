@@ -49,3 +49,5 @@ yarn-debug.log*
 yarn-error.log*
 /src/keys.js
 /src/routes/Testing.js
+/.idea
+
