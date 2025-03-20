@@ -12,7 +12,7 @@ const ncaaArray = [
 "North Carolina","VCU","Texas","Drake",
 "UC San Diego","Liberty","McNeese","Colorado State",
 "Yale","Akron","High Point","Grand Canyon",
-"Lipscomb","Montana","Troy","UNCW",
+"Lipscomb","Montana","Troy","UNC Wilmington",
 "Bryant","Robert Morris","Wofford","Omaha",
 "Alabama State","American","SIUE","Norfolk State",
 "Saint Francis (PA)","Mount Saint Mary's","bye","bye",

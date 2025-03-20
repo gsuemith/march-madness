@@ -1,364 +1,128 @@
-Houston,1901.16
-Florida,1881.16
-Duke,1865.4
-Saint John's,1818.46
-Auburn,1815.51
-Tennessee,1794.54
-Michigan State,1793.8
-Alabama,1790.75
-Louisville,1747.08
-Michigan,1744.64
-BYU,1734.56
-Clemson,1724.27
-Gonzaga,1712.57
-Maryland,1710.29
-Memphis,1706.84
-Texas Tech,1706.56
-Wisconsin,1701.65
-VCU,1697.26
-Saint Mary's College,1695.63
-Colorado State,1694.98
-Arizona,1692.9
-Drake,1691.61
-Oregon,1686.06
-Kentucky,1680.15
-Creighton,1677.51
-Iowa State,1674.6
-Texas A&M,1671.08
-Ole Miss,1665.69
-Connecticut,1663.09
-North Carolina,1659.73
-Illinois,1657.45
-UC San Diego,1647.62
-UCLA,1644.8
-Purdue,1642.04
-Arkansas,1633.14
-New Mexico,1632.2
-Boise State,1626.79
-Kansas,1624.3
-Xavier,1610.73
-Marquette,1610.43
-Utah State,1601.22
-George Mason,1597.52
-Georgia,1593.8
-High Point,1593.12
-Indiana,1592.48
-Baylor,1590.63
-McNeese,1582.18
-Liberty,1578.91
-Oklahoma,1578.46
-Yale,1576.63
-Texas,1573.7
-Mississippi State,1573.16
-Missouri,1573.13
-Akron,1569.75
-Grand Canyon,1567.95
-Wake Forest,1567.57
-Dayton,1565.98
-San Francisco,1565.96
-Bradley,1563.07
-Vanderbilt,1549.09
-SMU,1548.08
-San Diego State,1548.05
-UC Irvine,1547.39
-UNCW,1536.34
-Loyola-Chicago,1533.24
-UAB,1529.35
-Chattanooga,1526.92
-West Virginia,1524.47
-North Texas,1522.5
-Ohio State,1519.87
-Stanford,1517.78
-Saint Joseph's,1515.96
-Villanova,1513.75
-Cincinnati,1513.48
-Kansas State,1513.27
-Utah Valley,1508.88
-Robert Morris,1507.95
-Northwestern,1503.5
-Santa Clara,1500.52
-Rutgers,1496.8
-Iowa,1490.57
-Montana,1479.27
-Arkansas State,1477.86
-Penn State,1475.35
-Belmont,1473.64
-Troy,1471.3
-UCF,1470.11
-Colorado,1468.19
-USC,1467.6
-Oklahoma State,1465.07
-UNLV,1464.18
-Towson,1462.34
-Lipscomb,1461.59
-Charleston,1459.03
-Northern Iowa,1457.92
-Nebraska,1457.81
-Saint Louis,1453.72
-Georgia Tech,1453.29
-TCU,1453.11
-Furman,1451.63
-Jacksonville State,1450.07
-Minnesota,1444.6
-Utah,1443.76
-Kent State,1439.78
-Tulane,1435.48
-Bryant,1431.89
-Saint Bonaventure,1431.63
-Miami (OH),1428.67
-Winthrop,1425.69
-Middle Tennessee,1424.91
-Virginia,1424.84
-Florida State,1424.02
-Notre Dame,1423.35
-FAU,1422.67
-South Carolina,1414.13
-Omaha,1411.76
-George Washington,1410.24
-Northern Colorado,1409.43
-Cornell,1407.06
-Washington State,1406.52
-Butler,1405.01
-LSU,1402.85
-Syracuse,1401.04
-Cal State Northridge,1400.15
-Arizona State,1399.44
-James Madison,1398.98
-North Alabama,1396.76
-Norfolk State,1393.78
-Vermont,1393.63
-Princeton,1392.86
-UC Riverside,1391.3
-Oregon State,1390.96
-Nevada,1390.46
-Milwaukee,1390.16
-Pittsburgh,1389.42
-Samford,1387.57
-Central Connecticut,1386.68
-Illinois State,1385.71
-Wofford,1384.8
-East Carolina,1383.46
-Mount Saint Mary's,1380.75
-Youngstown State,1379.59
-Kennesaw State,1377.69
-Wichita State,1377.47
-Washington,1375.15
-UC Santa Barbara,1374.82
-Louisiana Tech,1371.97
-East Tennessee State,1366.78
-Marshall,1366.06
-Saint Thomas,1361.06
-South Alabama,1360.06
-UNCG,1359.31
-Georgetown,1358.05
-Virginia Tech,1355.33
-Drexel,1352.19
-UNC Asheville,1352.08
-Temple,1351.99
-Duquesne,1350.15
-Quinnipiac,1344.83
-American,1344.6
-Cleveland State,1344.36
-California,1343.37
-Lamar,1341.97
-New Mexico State,1339.94
-Murray State,1339.31
-Oakland,1338.12
-Iona,1337.25
-DePaul,1337.23
-South Dakota State,1336.98
-North Carolina State,1334.18
-Merrimack,1330.22
-Radford,1329.13
-California Baptist,1328.54
-Northern Kentucky,1326.85
-Cal Poly,1324.08
-Loyola-Marymount,1322.43
-Providence,1322.33
-SIUE,1321.46
-Davidson,1319.22
-Alabama State,1318.45
-Harvard,1317.11
-North Dakota State,1316.77
-Rhode Island,1316.48
-UIC,1316.48
-San Jose State,1316.23
-Nicholls,1315.99
-Brown,1314.99
-Southern Illinois,1313.78
-Southeast Missouri,1311.79
-FGCU,1311.01
-Seattle University,1310.88
-Toledo,1310.37
-Western Kentucky,1309.75
-Monmouth,1308.06
-South Carolina State,1305.94
-Purdue Fort Wayne,1299.56
-Jacksonville,1299.18
-Sam Houston State,1298.84
-Maine,1298.21
-Eastern Kentucky,1296.98
-Indiana State,1294.75
-Bucknell,1293.9
-Abilene Christian,1291.73
-Boston College,1287.14
-Hampton,1285.52
-UTEP,1284.99
-Appalachian State,1284.51
-La Salle,1283.87
-Manhattan,1283.22
-UMass,1282.51
-Valparaiso,1280.33
-Northeastern,1280.2
-South Dakota,1278.54
-Miami (FL),1274.58
-Dartmouth,1274.49
-Northwestern State,1274.49
-Jackson State,1273.04
-Bethune-Cookman,1272.24
-Ohio,1271.17
-Queens,1269.91
-Georgia Southern,1266.59
-Texas State,1266.12
-Delaware,1265.48
-Pepperdine,1265.4
-Texas A&M-Corpus Christi,1265.34
-Eastern Michigan,1263.25
-Tulsa,1262.56
-Portland State,1260.8
-Marist,1259.94
-Montana State,1258.22
-Hawaii,1255.07
-South Florida,1255.04
-William & Mary,1249.17
-UTA,1248.88
-Little Rock,1247.71
-UC Davis,1245.47
-Southern,1242.49
-Rider,1241.59
-Longwood,1240.01
-Richmond,1238.42
-Tennessee State,1238.02
-Georgia State,1237.63
-Seton Hall,1237.45
-Portland,1234.39
-Navy,1232.71
-Evansville,1232.64
-Tarleton State,1230.43
-Old Dominion,1228.91
-Albany,1228.21
-Fordham,1227.95
-Sacred Heart,1223.41
-Cal State Bakersfield,1220.9
-Campbell,1220.11
-Saint Peter's,1219.84
-Idaho State,1217.65
-Elon,1214.27
-Northern Arizona,1213.2
-Southeastern Louisiana,1212.08
-UTSA,1211.93
-Bowling Green,1211.9
-Wright State,1211.26
-Western Michigan,1210.15
-Presbyterian College,1210.13
-Saint Francis (PA),1205.62
-Charlotte,1204.97
-Long Island,1202.43
-Incarnate Word,1202.34
-Louisiana,1201.39
-Wyoming,1198.88
-Colgate,1193.06
-Boston University,1191.59
-UMass-Lowell,1190.9
-Hofstra,1190.89
-Mercer,1190.83
-Central Michigan,1189.03
-Fairfield,1186.33
-VMI,1184.31
-Austin Peay,1183.81
-Idaho,1180.22
-Lindenwood,1176.94
-Stephen F. Austin,1174.39
-Texas Southern,1173.23
-North Florida,1171.96
-Rice,1170.16
-Delaware State,1169.43
-Penn,1167.84
-Siena,1165.91
-Ball State,1165.79
-FIU,1163.33
-Eastern Illinois,1162.25
-UTRGV,1160.86
-Gardner-Webb,1159.33
-Binghamton,1154.57
-Mercyhurst,1153.42
-North Dakota,1148.36
-Army,1146.48
-Alcorn State,1144.98
-North Carolina Central,1142.81
-Florida A&M,1135.35
-Missouri State,1135.25
-Tennessee-Martin,1128.89
-Tennessee Tech,1127.37
-Morgan State,1122.8
-Charleston Southern,1122.45
-UMKC,1120.59
-Morehead State,1119.2
-Stony Brook,1118.52
-Grambling State,1118.03
-Weber State,1115.99
-Fairleigh Dickinson,1115.89
-Columbia,1115.72
-Lafayette,1113.52
-Niagara,1113.32
-Western Illinois,1112.58
-Denver,1112.56
-Fresno State,1110.12
-Western Carolina,1105.82
-Eastern Washington,1105.68
-UMBC,1102.16
-Southern Utah,1100.44
-New Hampshire,1100.09
-San Diego,1094.01
-Southern Miss,1091.38
-Pacific,1089.32
-IU Indianapolis,1085.14
-Stonehill,1084.65
-Loyola-Maryland,1084.27
-Houston Christian,1084.02
-Howard,1081.49
-Lehigh,1072.74
-Long Beach State,1072.52
-Wagner,1070.49
-Central Arkansas,1066.78
-Buffalo,1058.42
-Stetson,1053.59
-Air Force,1046.19
-North Carolina A&T,1043.87
-Utah Tech,1042.24
-Coastal Carolina,1035.1
-Cal State Fullerton,1033.34
-Green Bay,1031.9
-Holy Cross,1030.5
-Oral Roberts,1024.07
-Detroit,1022.66
-ULM,1021.8
-East Texas A&M,1018.55
-West Georgia,1009.56
-NJIT,1009.48
-Southern Indiana,1006.92
-Coppin State,1005.37
-South Carolina Upstate,993.33
-Alabama A&M,986.08
-Canisius,985.12
-Le Moyne,983.46
-Northern Illinois,975.87
-Bellarmine,968.81
-Sacramento State,963.31
-Chicago State,950.83
-Maryland Eastern Shore,943.69
-The Citadel,918.44
-Arkansas-Pine Bluff,917.43
-New Orleans,913.8
-Prairie View A&M,893.63
-Mississippi Valley State,822.14
+Florida,2129
+Houston,2123
+Duke,2106
+Auburn,2069
+St. John's,2058
+Michigan St.,2036
+Tennessee,2014
+Alabama,2002
+Maryland,1990
+Texas Tech,1971
+Gonzaga,1955
+Arizona,1954
+Clemson,1944
+Wisconsin,1938
+Louisville,1937
+UConn,1934
+Saint Mary's (CA),1925
+Iowa St.,1925
+BYU,1915
+Michigan,1899
+North Carolina,1889
+VCU,1889
+Texas A&M,1887
+Creighton,1887
+Marquette,1886
+Illinois,1885
+Memphis,1871
+New Mexico,1870
+Drake,1869
+Oregon,1866
+UC San Diego,1862
+Boise St.,1858
+Colorado St.,1856
+Baylor,1854
+Purdue,1852
+Kentucky,1849
+Kansas,1842
+Ole Miss,1840
+Missouri,1837
+Xavier,1832
+UCLA,1828
+Georgia,1823
+Oklahoma,1802
+Northwestern,1802
+Mississippi St.,1799
+Arkansas,1791
+Utah St.,1787
+Liberty,1785
+Villanova,1774
+SMU,1768
+San Diego St.,1768
+Penn St.,1765
+Yale,1759
+Indiana,1759
+Texas,1756
+Ohio St.,1755
+George Mason,1754
+Santa Clara,1751
+Wake Forest,1749
+Dayton,1746
+Iowa,1744
+San Francisco,1735
+UC Irvine,1733
+Grand Canyon,1724
+USC,1722
+Cincinnati,1718
+High Point,1718
+West Virginia,1706
+Vanderbilt,1705
+Kansas St.,1704
+North Texas,1700
+Nebraska,1697
+Chattanooga,1693
+Saint Joseph's,1690
+Loyola Chicago,1684
+Rutgers,1683
+McNeese,1683
+Bradley,1678
+Stanford,1678
+Arkansas St.,1673
+Utah Valley,1672
+South Carolina,1671
+UCF,1665
+UNLV,1663
+Butler,1660
+UNC Wilmington,1654
+Troy,1652
+Colorado,1645
+Akron,1643
+UAB,1641
+Lipscomb,1641
+Minnesota,1638
+Pittsburgh,1638
+Nevada,1635
+Northern Iowa,1634
+Arizona St.,1633
+Utah,1631
+TCU,1630
+Tulane,1628
+Jacksonville St.,1626
+Oklahoma St.,1619
+Georgetown,1617
+Northern Colorado,1615
+Saint Louis,1614
+Belmont,1614
+Bryant,1612
+Robert Morris,1612
+Virginia,1611
+Florida St.,1609
+Florida Atlantic,1608
+Cal State Northridge,1607
+Wofford,1603
+LSU,1601
+Cornell,1600
+College of Charleston,1596
+Oregon St.,1596
+Syracuse,1591
+Kent St.,1590
+George Washington,1587
+Furman,1586
+Georgia Tech,1586
+Montana,1583
+Washington St.,1582
+NC State,1580
+New Mexico St.,1580
+North Alabama,1579
+Omaha,1579
+Towson,1578
