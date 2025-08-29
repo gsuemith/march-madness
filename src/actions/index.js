@@ -92,9 +92,6 @@ export const moveDown = (id) => {
 export const startTournament = (ids) => {
   
   let initial = seed(ids).map((matchup, index, array) => {
-    console.log(matchup)
-    console.log(rating538.find(elo => elo.name === matchup[0]))
-    console.log(rating538.find(elo => elo.name === matchup[1]))
     const newMatch = {
       id: index,
       winner: null,
@@ -150,12 +147,11 @@ export const getTeams = () => dispatch => {
             return found_team
           }
           else {
-            console.log(team.name)
+            console.log("can't find ", team.name)
             return {School: team.name}
           }
         })
         teams.shift();  //remove 'bye'
-      console.log(teams);
         const teamList = teams.map(team => {
           return {
             id: team.School,
