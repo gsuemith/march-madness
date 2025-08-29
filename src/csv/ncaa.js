@@ -5,7 +5,7 @@ const ncaaArray = [
 "Texas A&M","Arizona","Purdue","Maryland",
 "Michigan","Oregon","Clemson","Memphis",
 "Ole Miss","BYU","Illinois","Missouri",
-"Marquette","Saint Mary's College","UCLA","Kansas",
+"Marquette","Saint Mary's","UCLA","Kansas",
 "Louisville","Mississippi State","Gonzaga","Connecticut",
 "Creighton","Baylor","Georgia","Oklahoma",
 "New Mexico","Vanderbilt","Utah State","Arkansas",
