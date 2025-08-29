@@ -5,7 +5,7 @@ export const rating538 = [
 {name:"Houston", rating:2123},
 {name:"Duke", rating:2106},
 {name:"Auburn", rating:2069},
-{name:"Saint John's", rating:2058},
+{name:"St. John's", rating:2058},
 {name:"Michigan State", rating:2036},
 {name:"Tennessee", rating:2014},
 {name:"Alabama", rating:2002},

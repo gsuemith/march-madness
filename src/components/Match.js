@@ -21,7 +21,9 @@ const Match = ({ match, runMatch, chooseWinner, teams }) => {
 
   const logo = id => {
     const myTeam = teams.find(team => team.id === id);
-    
+    if (myTeam){
+        console.log(myTeam.logo)
+    }
     return myTeam ? myTeam.logo : '#'
   }
 

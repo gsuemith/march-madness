@@ -142,21 +142,29 @@ export const getTeams = () => dispatch => {
   
   axios.get(getURL())
     .then(res =>{
-        
         const teams = rating538.map(team => {
-          return res.data.find(apiTeam => apiTeam.School === team.name)
+          const found_team = res.data.find(apiTeam => apiTeam.School === team.name)
+          if(found_team){
+            return found_team
+          }
+          else {
+            console.log(team.name)
+            return {School: team.name}
+          }
         })
         teams.shift();  //remove 'bye'
+      console.log(teams);
         const teamList = teams.map(team => {
+
           return {
             id: team.School,
             teamName: team.Name,
             wins: team.Wins,
-            losses: team.Losses, 
+            losses: team.Losses,
             logo: team.TeamLogoUrl
           }
         })
-        
+
         dispatch({type:FETCH_TEAMS_SUCCESS, payload:teamList})
       })
 
