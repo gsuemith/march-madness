@@ -1,6 +1,6 @@
 const ncaaArray = [
 "Auburn","Duke","Houston","Florida",
-"Michigan State","Alabama","Tennessee","St.John's",
+"Michigan State","Alabama","Tennessee","St. John's",
 "Iowa State","Wisconsin","Kentucky","Texas Tech",
 "Texas A&M","Arizona","Purdue","Maryland",
 "Michigan","Oregon","Clemson","Memphis",
