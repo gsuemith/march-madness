@@ -10,7 +10,7 @@ const ncaaArray = [
 "Creighton","Baylor","Georgia","Oklahoma",
 "New Mexico","Vanderbilt","Utah State","Arkansas",
 "North Carolina","VCU","Texas","Drake",
-"UC San Diego","Liberty","McNeese State","Colorado State",
+"California-San Diego","Liberty","McNeese State","Colorado State",
 "Yale","Akron","High Point","Grand Canyon",
 "Lipscomb","Montana","Troy","UNCW",
 "Bryant","Robert Morris","Wofford","Omaha",
